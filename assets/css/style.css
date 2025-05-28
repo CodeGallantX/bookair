@@ -1,0 +1,23 @@
+/* Colour Configuration */
+:root {
+    --bg-light: #FAFAFF;
+    --bg-dark: #1E2749;
+    --accent: #E4D9FF;
+    --primary: #273469;
+    --text-color: #30343F;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* Font-family configuration */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Merriweather";
+}
+
+p, span, a, div, section, label, input, textarea, button {
+    font-family: "Merriweather Sans";
+}
