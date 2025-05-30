@@ -8,8 +8,9 @@
 }
 
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Font-family configuration */
@@ -18,6 +19,296 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Merriweather";
 }
 
-p, span, a, div, section, label, input, textarea, button {
+p, a, div, section, label, input, select, textarea, button {
     font-family: "Merriweather Sans";
+}
+
+body {
+    font-family: 'Merriweather Sans', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    padding: 1.2rem 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-light);
+    border-bottom: 1px solid #00000011;
+    z-index: 1000;
+}
+
+.logo {
+    /* display: flex; */
+    /* align-items: center; */
+    gap: 0.5rem;
+}
+
+.logo-icon {
+    color: var(--primary);
+}
+
+header > div > h1 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+header > div > h1 > span {
+    color: var(--accent);
+    font-size: 1.8rem;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+ul > li > a {
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+ul > li > a:hover {
+    color: var(--primary);
+}
+
+.nav-icon {
+    color: currentColor;
+}
+
+header > button {
+    padding: 0.8rem 1.2rem;
+    border: none;
+    color: var(--bg-light);
+    font-size: 1rem;  
+    border-radius: 50px;
+    background: var(--primary);
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+header > button:hover {
+    background: var(--bg-dark);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* Hero Section */
+main {
+    padding: 6rem 2rem 2rem;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    min-height: 100vh;
+}
+
+.hero-content {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.hero-image {
+    flex: 1;
+    border-radius: 1rem;
+    overflow: hidden;
+    height: 300px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--bg-dark);
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #64748b;
+    max-width: 500px;
+}
+
+.search-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.search-field {
+    display: flex;
+    align-items: center;
+    /* gap: 0.5rem; */
+    padding: 0.1rem 0.6rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 50px;
+    background: var(--bg-light);
+}
+
+.search-field input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    background: var(--bg-light);
+}
+
+.search-field select {
+    border: none;
+    background: var(--bg-light);
+    padding: 1.2rem 1.2rem;
+}
+
+.search-btn {
+    grid-column: 1 / -1;
+    padding: 1rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background 0.3s ease;
+}
+
+.search-btn:hover {
+    background: var(--bg-dark);
+}
+
+.stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* Responsive Design for Hero section*/
+@media (min-width: 768px) {
+    main {
+        flex-direction: row;
+        align-items: center;
+        padding: 6rem 3rem 2rem;
+    }
+    
+    .hero-image {
+        height: auto;
+    }
+    
+    h1 {
+        font-size: 3rem;
+    }
+    
+    .search-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .search-btn {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-light);
+        padding: 1rem;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+    }
+    
+    nav.active {
+        transform: translateY(0);
+    }
+    
+    ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 1rem;
+    }
+    
+    header > div > h1 {
+        font-size: 1.5rem;
+    }
+    
+    header > div > h1 > span {
+        font-size: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .search-container {
+        grid-template-columns: 1fr;
+    }
 }
