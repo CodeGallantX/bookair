@@ -1,13 +1,13 @@
 {
-  "name": "web",
+  "name": "BookAir",
   "version": "1.0.0",
   "description": "---\r ### Documentation \r ---",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["BookAir"],
+  "author": "John Samuel",
   "license": "ISC",
   "dependencies": {
     "aos": "^2.3.4"
