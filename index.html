@@ -37,6 +37,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="./payment.html">
+                        <span>Payment</span>
+                    </a>
+                </li>
+                <li>
                     <a href="#">
                         <span>Check In</span>
                     </a>
@@ -48,12 +53,23 @@
                 </li>
             </ul>
         </nav>
-        <button onclick="navigate('flights')" id="getStarted" type="button" aria-label="Get Started">
+        <!-- <button onclick="navigate('flights')" id="getStarted" type="button" aria-label="Get Started">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14 5L21 12M21 12L14 19M21 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span>Get Started</span>
-        </button>
+        </button> -->
+<button class="special-button" onclick="navigate('flights')" id="getStarted" type="button" aria-label="Get Started">
+  <div class="svg-wrapper-1">
+    <div class="svg-wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#FFF" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M3.414 13.778 2 15.192l4.949 2.121 2.122 4.95 1.414-1.414-.707-3.536L13.091 14l3.61 7.704 1.339-1.339-1.19-10.123 2.828-2.829a2 2 0 1 0-2.828-2.828l-2.903 2.903L3.824 6.297 2.559 7.563l7.644 3.67-3.253 3.253-3.536-.708z"></path>
+    </svg>
+    </div>
+  </div>
+  <span>Get Started</span>
+</button>
+
         <button class="mobile-menu-btn" aria-label="Menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

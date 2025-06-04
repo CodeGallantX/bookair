@@ -91,7 +91,7 @@ ul > li > a:hover {
     color: currentColor;
 }
 
-header > button {
+/* header > button {
     padding: 0.8rem 1.2rem;
     border: none;
     color: var(--bg-light);
@@ -108,7 +108,67 @@ header > button {
 
 header > button:hover {
     background: var(--bg-dark);
+} */
+
+.special-button {
+  font-family: inherit;
+  font-size: 16px;
+  background: var(--primary);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 50px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
 }
+
+.special-button span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+.special-button svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.special-button:hover {
+    padding: 0.8rem 0.1rem;
+    border-radius: 50px;
+}
+
+.special-button:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.special-button:hover svg {
+  transform: translateX(2.5em) rotate(45deg) scale(1.1);
+}
+
+.special-button:hover span {
+  transform: translateX(8em);
+}
+
+.special-button:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+
 
 .mobile-menu-btn {
     display: none;
