@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
-    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Linking CSS file to HTML -->
@@ -64,11 +64,11 @@
     <!-- HERO SECTION -->
     <main>
         <div class="hero-content">
-            <h1>Discover the World with Ease</h1>
-            <p class="subtitle">Book your next adventure with our exclusive flight deals and premium services</p>
+            <h1 data-aos="fade-right">Discover the World with Ease</h1>
+            <p data-aos="fade-right" class="subtitle">Book your next adventure with our exclusive flight deals and premium services</p>
             
             
-            <div class="stats">
+            <div data-aos="fade-up" data-aos-delay="100" class="stats">
                 <div class="stat-item">
                     <span class="stat-number">250+</span>
                     <span class="stat-label">Destinations</span>
@@ -82,7 +82,7 @@
                     <span class="stat-label">Support</span>
                 </div>
             </div>
-            <div class="search-container">
+            <div data-aos="fade-up" data-aos-delay="200" class="search-container">
                 <div class="search-field">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -131,7 +131,7 @@
                 </button>
             </div>
         </div>
-        <div class="hero-image">
+        <div data-aos="fade-left"  class="hero-image">
             <!-- Recommended images from Unsplash:
             - https://unsplash.com/photos/airplane-flying-over-clouds-during-daytime-QdAAasrZhdk
             - https://unsplash.com/photos/white-and-red-airplane-on-airport-QdAAasrZhdk
@@ -141,5 +141,9 @@
     </main>
     
     <script src="./assets/js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
