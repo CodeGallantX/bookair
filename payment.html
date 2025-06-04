@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/payment.css" />
+  <!-- <link rel="stylesheet" href="./assets/css/style.css" /> -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <title>BookAir - Secure Payment</title>
+</head>
+<body>
+  <main>
+    <header data-aos="fade-down">
+      <div class="logo">
+        <h1>Book<span class="logo">Air</span></h1>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="#">
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Flights</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Services</span>
+            </a>
+          </li>
+          <li>
+            <a href="./payment.html">
+              <span>Payment</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Check In</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <button class="special-button" onclick="navigate('flights')" id="getStarted" type="button" aria-label="Get Started">
+        <div class="svg-wrapper-1">
+          <div class="svg-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#FFF" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M3.414 13.778 2 15.192l4.949 2.121 2.122 4.95 1.414-1.414-.707-3.536L13.091 14l3.61 7.704 1.339-1.339-1.19-10.123 2.828-2.829a2 2 0 1 0-2.828-2.828l-2.903 2.903L3.824 6.297 2.559 7.563l7.644 3.67-3.253 3.253-3.536-.708z"></path>
+            </svg>
+          </div>
+        </div>
+        <span>Get Started</span>
+      </button>
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+    
+    <div class="container" data-aos="fade-up">
+      <div class="form-section">
+        <h2>Secure Payment</h2>
+
+        <div class="section-block">
+          <label>Enter a promo code or voucher number</label>
+          <div style="display: flex; gap: 0.5rem;">
+            <input type="text" placeholder="XY12345" style="flex: 1;"/>
+            <button class="apply-btn">
+              <i class="fas fa-tag"></i>
+              Apply
+            </button>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>Billing Information</h3>
+          <div class="radio-group">
+            <label><input type="radio" name="person-type" checked> <i class="fas fa-user"></i> Individual</label>
+            <label><input type="radio" name="person-type"> <i class="fas fa-building"></i> Company</label>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div>
+              <label>First name</label>
+              <input type="text" placeholder="John">
+            </div>
+            <div>
+              <label>Last name</label>
+              <input type="text" placeholder="Smith">
+            </div>
+          </div>
+          <label>Address</label>
+          <input type="text" placeholder="Washington street, 32">
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem;">
+            <div>
+              <label>Postal code/Zip</label>
+              <input type="text" placeholder="01234">
+            </div>
+            <div>
+              <label>City</label>
+              <input type="text" placeholder="New York">
+            </div>
+          </div>
+          <label>Country</label>
+          <select aria-label="Country">
+            <option value="" disabled selected>Select your country</option>
+            <option>United Kingdom</option>
+            <option>France</option>
+            <option>Germany</option>
+            <option>Spain</option>
+            <option>Italy</option>
+            <option>Netherlands</option>
+            <option>Canada</option>
+            <option>Australia</option>
+            <option>India</option>
+            <option>Japan</option>
+            <option>China</option>
+            <option>Brazil</option>
+            <option>Mexico</option>
+            <option>United States of America</option>
+            <option>Nigeria</option>
+            <option>Ghana</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="section-block">
+          <h3>Payment Method</h3>
+          <div class="radio-group">
+            <label><input type="radio" name="payment-method" checked> <i class="far fa-credit-card"></i> Bank Card</label>
+            <label><input type="radio" name="payment-method"> <i class="fab fa-paypal"></i> PayPal</label>
+          </div>
+          
+          <!-- Credit Card Preview -->
+          <div class="card-preview">
+            <div class="card-company">VISA</div>
+            <div class="card-number">•••• •••• •••• 4444</div>
+            <div class="card-details">
+              <div>
+                <div style="font-size: 0.7rem; opacity: 0.8;">CARDHOLDER NAME</div>
+                <div>JOHN SMITH</div>
+              </div>
+              <div>
+                <div style="font-size: 0.7rem; opacity: 0.8;">EXPIRES</div>
+                <div>11/22</div>
+              </div>
+            </div>
+          </div>
+          
+          <label>Card number</label>
+          <input type="text" placeholder="1111 2222 3333 4444" inputmode="numeric" pattern="[0-9\s]{13,19}">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div>
+              <label>Expiry date</label>
+              <input type="text" placeholder="MM/YY">
+            </div>
+            <div>
+              <label>CVV code</label>
+              <div style="position: relative;">
+                <input type="text" placeholder="123" style="padding-right: 2.5rem;">
+                <i class="fas fa-question-circle" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-light); cursor: help;" title="3-digit code on back of card"></i>
+              </div>
+            </div>
+          </div>
+          <label>Cardholder full name</label>
+          <input type="text" placeholder="John Smith">
+          <label style="display: flex; align-items: center; margin-top: 1rem;">
+            <input type="checkbox" checked>
+            <span>Remember for future payments</span>
+          </label>
+          
+          <div class="payment-method-icons">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visa/visa-original.svg" alt="Visa">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mastercard/mastercard-original.svg" alt="Mastercard">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="Apple Pay">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google Pay">
+          </div>
+        </div>
+
+        <button class="pay-btn">
+          <i class="fas fa-lock"></i>
+          Pay ₦210,000 Now
+        </button>
+        
+        <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; color: var(--text-light);">
+          <i class="fas fa-shield-alt"></i> Your payment is secured with 256-bit SSL encryption
+        </p>
+      </div>
+
+      <div class="summary">
+        <h3>Your Booking Summary</h3>
+        
+        <div class="flight-detail">
+          <p><strong><i class="far fa-calendar-alt"></i> Sunday, 31.10.2024</strong><br>
+          <i class="fas fa-plane-departure"></i> Kiev (KBP) → Paris (CDG)<br>
+          <i class="far fa-clock"></i> 13:50 – 18:45 | <i class="fas fa-chair"></i> Economy</p>
+        </div>
+        
+        <div class="flight-detail">
+          <p><strong><i class="far fa-calendar-alt"></i> Wednesday, 11.11.2024</strong><br>
+          <i class="fas fa-plane-departure"></i> Paris (CDG) → Kiev (KBP)<br>
+          <i class="far fa-clock"></i> 06:45 – 20:35 | <i class="fas fa-chair"></i> Economy</p>
+        </div>
+        
+        <p><strong><i class="fas fa-suitcase"></i> Bags:</strong> 1 checked bag (23kg)</p>
+        <p><strong><i class="fas fa-users"></i> Passengers:</strong> Adult × 2</p>
+        
+        <div class="price-summary">
+          <p><strong><i class="fas fa-receipt"></i> Base Fare:</strong> ₦180,000</p>
+          <p><strong><i class="fas fa-tag"></i> Taxes & Fees:</strong> ₦30,000</p>
+          <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary);">
+            <strong><i class="fas fa-wallet"></i> Total Price:</strong> ₦210,000
+          </p>
+        </div>
+        
+        <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 2rem;">
+          <i class="fas fa-info-circle"></i> Free cancellation available up to 24 hours before departure
+        </p>
+      </div>
+    </div>
+  </main>
+  
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="./assets/js/payment.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  </script>
+</body>
+</html>

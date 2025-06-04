@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
-    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Linking CSS file to HTML -->
@@ -37,6 +37,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="./payment.html">
+                        <span>Payment</span>
+                    </a>
+                </li>
+                <li>
                     <a href="#">
                         <span>Check In</span>
                     </a>
@@ -48,12 +53,23 @@
                 </li>
             </ul>
         </nav>
-        <button onclick="navigate('flights')" id="getStarted" type="button" aria-label="Get Started">
+        <!-- <button onclick="navigate('flights')" id="getStarted" type="button" aria-label="Get Started">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14 5L21 12M21 12L14 19M21 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span>Get Started</span>
-        </button>
+        </button> -->
+<button class="special-button" onclick="navigate('flights')" id="getStarted" type="button" aria-label="Get Started">
+  <div class="svg-wrapper-1">
+    <div class="svg-wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#FFF" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M3.414 13.778 2 15.192l4.949 2.121 2.122 4.95 1.414-1.414-.707-3.536L13.091 14l3.61 7.704 1.339-1.339-1.19-10.123 2.828-2.829a2 2 0 1 0-2.828-2.828l-2.903 2.903L3.824 6.297 2.559 7.563l7.644 3.67-3.253 3.253-3.536-.708z"></path>
+    </svg>
+    </div>
+  </div>
+  <span>Get Started</span>
+</button>
+
         <button class="mobile-menu-btn" aria-label="Menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -64,11 +80,11 @@
     <!-- HERO SECTION -->
     <main>
         <div class="hero-content">
-            <h1>Discover the World with Ease</h1>
-            <p class="subtitle">Book your next adventure with our exclusive flight deals and premium services</p>
+            <h1 data-aos="fade-right">Discover the World with Ease</h1>
+            <p data-aos="fade-right" class="subtitle">Book your next adventure with our exclusive flight deals and premium services</p>
             
             
-            <div class="stats">
+            <div data-aos="fade-up" data-aos-delay="100" class="stats">
                 <div class="stat-item">
                     <span class="stat-number">250+</span>
                     <span class="stat-label">Destinations</span>
@@ -82,7 +98,7 @@
                     <span class="stat-label">Support</span>
                 </div>
             </div>
-            <div class="search-container">
+            <div data-aos="fade-up" data-aos-delay="200" class="search-container">
                 <div class="search-field">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -131,7 +147,7 @@
                 </button>
             </div>
         </div>
-        <div class="hero-image">
+        <div data-aos="fade-left"  class="hero-image">
             <!-- Recommended images from Unsplash:
             - https://unsplash.com/photos/airplane-flying-over-clouds-during-daytime-QdAAasrZhdk
             - https://unsplash.com/photos/white-and-red-airplane-on-airport-QdAAasrZhdk
@@ -141,5 +157,9 @@
     </main>
     
     <script src="./assets/js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
