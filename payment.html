@@ -9,50 +9,59 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/payment.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
   <!-- <link rel="stylesheet" href="./assets/css/style.css" /> -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <title>BookAir - Secure Payment</title>
 </head>
 <body>
   <main>
-    <header data-aos="fade-down">
-      <div class="logo">
-        <h1>Book<span class="logo">Air</span></h1>
-      </div>
-      <nav>
-        <ul>
-          <li>
-            <a href="#">
-              <span>Home</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>Flights</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>Services</span>
-            </a>
-          </li>
-          <li>
-            <a href="./payment.html">
-              <span>Payment</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>Check In</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>Contact</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+<header>
+  <div>
+    <div class="logo">
+      <h1>Book<span>Air</span></h1>
+    </div>
+    
+    <nav>
+      <ul>
+        <li>
+          <a href="/">
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span>Flights</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span>Services</span>
+          </a>
+        </li>
+        <li>
+          <a href="./payment.html">
+            <span>Payment</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span>Check In</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span>Contact</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="header-buttons">
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+      
       <button class="special-button" onclick="navigate('flights')" id="getStarted" type="button" aria-label="Get Started">
         <div class="svg-wrapper-1">
           <div class="svg-wrapper">
@@ -63,10 +72,62 @@
         </div>
         <span>Get Started</span>
       </button>
+      
       <button class="mobile-menu-btn" aria-label="Menu">
         <i class="fas fa-bars"></i>
       </button>
-    </header>
+    </div>
+  </div>
+
+  <!-- Mobile Sidebar -->
+  <div class="mobile-sidebar">
+    <div class="sidebar-header">
+      <h3>Menu</h3>
+      <button type="button" aria-label="Close Sidebar" class="close-sidebar">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <ul class="mobile-nav">
+      <li>
+        <a href="#">
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span>Flights</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span>Services</span>
+        </a>
+      </li>
+      <li>
+        <a href="./payment.html">
+          <span>Payment</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span>Check In</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span>Contact</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="mobile-theme-toggle">
+          <i class="fas fa-moon"></i>
+          <span>Dark Mode</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  </header>
     
     <div class="container" data-aos="fade-up">
       <div class="form-section">
@@ -231,6 +292,7 @@
   </main>
   
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="./assets/js/script.js"></script>
   <script src="./assets/js/payment.js"></script>
   <script>
     AOS.init({

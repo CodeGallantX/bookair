@@ -27,6 +27,14 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Merriweather Sans", sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-color: #f5f7fa;
+}
+
 /* Font-family configuration */
 h1,
 h2,
@@ -50,14 +58,6 @@ textarea,
 button,
 span {
   font-family: "Merriweather Sans", sans-serif;
-}
-
-body {
-  font-family: "Merriweather Sans", sans-serif;
-  color: var(--text-color);
-  line-height: 1.6;
-  overflow-x: hidden;
-  background-color: #f5f7fa;
 }
 
 /* Header Styles */
