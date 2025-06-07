@@ -1,0 +1,275 @@
+Complete this:
+{
+  "flights": [
+    {
+      "id": "DL123",
+      "airline": "delta",
+      "flightNumber": "DL123",
+      "departure": {
+        "airport": "JFK",
+        "time": "08:45",
+        "date": "2023-12-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "20:15",
+        "date": "2023-12-15"
+      },
+      "duration": "7h 30m",
+      "stops": 0,
+      "price": 650,
+      "baggage": {
+        "cabin": 1,
+        "checked": 0
+      },
+      "aircraft": "Boeing 767",
+      "seatsLeft": 12
+    },
+    {
+      "id": "UA456",
+      "airline": "united",
+      "flightNumber": "UA456",
+      "departure": {
+        "airport": "JFK",
+        "time": "11:30",
+        "date": "2023-12-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "23:00",
+        "date": "2023-12-15"
+      },
+      "duration": "7h 30m",
+      "stops": 0,
+      "price": 720,
+      "baggage": {
+        "cabin": 1,
+        "checked": 1
+      },
+      "aircraft": "Boeing 777",
+      "seatsLeft": 5
+    },
+    {
+      "id": "BA789",
+      "airline": "british",
+      "flightNumber": "BA789",
+      "departure": {
+        "airport": "JFK",
+        "time": "18:15",
+        "date": "2023-12-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "06:30",
+        "date": "2023-12-16"
+      },
+      "duration": "8h 15m",
+      "stops": 0,
+      "price": 850,
+      "baggage": {
+        "cabin": 1,
+        "checked": 1
+      },
+      "aircraft": "Airbus A380",
+      "seatsLeft": 20
+    },
+    {
+      "id": "AA101",
+      "airline": "american",
+      "flightNumber": "AA101",
+      "departure": {
+        "airport": "JFK",
+        "time": "14:20",
+        "date": "2023-12-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "02:35",
+        "date": "2023-12-16"
+      },
+      "duration": "8h 15m",
+      "stops": 0,
+      "price": 690,
+      "baggage": {
+        "cabin": 1,
+        "checked": 0
+      },
+      "aircraft": "Boeing 787",
+      "seatsLeft": 8
+    },
+    {
+      "id": "DL202",
+      "airline": "delta",
+      "flightNumber": "DL202",
+      "departure": {
+        "airport": "JFK",
+        "time": "09:30",
+        "date": "2023-12-15"
+      },
+      "arrival": {
+        "airport": "ORD",
+        "time": "11:45",
+        "date": "2023-12-15"
+      },
+      "departure2": {
+        "airport": "ORD",
+        "time": "13:15",
+        "date": "2023-12-15"
+      },
+      "arrival2": {
+        "airport": "LHR",
+        "time": "04:30",
+        "date": "2023-12-16"
+      },
+      "duration": "10h 15m",
+      "stops": 1,
+      "price": 550,
+      "baggage": {
+        "cabin": 1,
+        "checked": 1
+      },
+      "aircraft": "Boeing 737 / Boeing 767",
+      "seatsLeft": 15
+    },
+    {
+      "id": "UA303",
+      "airline": "united",
+      "flightNumber": "UA303",
+      "departure": {
+        "airport": "JFK",
+        "time": "07:15",
+        "date": "2023-12-15"
+      },
+      "arrival": {
+        "airport": "IAD",
+        "time": "08:30",
+        "date": "2023-12-15"
+      },
+      "departure2": {
+        "airport": "IAD",
+        "time": "10:45",
+        "date": "2023-12-15"
+      },
+      "arrival2": {
+        "airport": "LHR",
+        "time": "22:30",
+        "date": "2023-12-15"
+      },
+      "duration": "11h 15m",
+      "stops": 1,
+      "price": 480,
+      "baggage": {
+        "cabin": 1,
+        "checked": 0
+      },
+      "aircraft": "Boeing 737 / Boeing 777",
+      "seatsLeft": 3
+    },
+    {
+      "id": "BA404",
+      "airline": "british",
+      "flightNumber": "BA404",
+      "departure": {
+        "airport": "JFK",
+        "time": "16:45",
+        "date": "2023-12-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "04:30",
+        "date": "2023-12-16"
+      },
+      "duration": "7h 45m",
+      "stops": 0,
+      "price": 920,
+      "baggage": {
+        "cabin": 1,
+        "checked": 2
+      },
+      "aircraft": "Boeing 747",
+      "seatsLeft": 10
+    },
+    {
+      "id": "AA505",
+      "airline": "american",
+      "flightNumber": "AA505",
+      "departure": {
+        "airport": "JFK",
+        "time": "12:10",
+        "date": "2023-12-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "23:55",
+        "date": "2023-12-15"
+      },
+      "duration": "7h 45m",
+      "stops": 0,
+      "price": 780,
+      "baggage": {
+        "cabin": 1,
+        "checked": 1
+      },
+      "aircraft": "Boeing 777",
+      "seatsLeft": 6
+    },
+    {
+      "id": "DL606",
+      "airline": "delta",
+      "flightNumber": "DL606",
+      "departure": {
+        "airport": "JFK",
+        "time": "10:00",
+        "date": "2023-12-15"
+      },
+      "arrival": {
+        "airport": "ATL",
+        "time": "12:30",
+        "date": "2023-12-15"
+      },
+      "departure2": {
+        "airport": "ATL",
+        "time": "14:00",
+        "date": "2023-12-15"
+      },
+      "arrival2": {
+        "airport": "LHR",
+        "time": "06:15",
+        "date": "2023-12-16"
+      },
+      "duration": "11h 15m",
+      "stops": 1,
+      "price": 520,
+      "baggage": {
+        "cabin": 1,
+        "checked": 1
+      },
+      "aircraft": "Boeing 737 / Airbus A330",
+      "seatsLeft": 9
+    },
+    {
+      "id": "UA707",
+      "airline": "united",
+      "flightNumber": "UA707",
+      "departure": {
+        "airport": "JFK",
+        "time": "13:50",
+        "date": "2023-12-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "01:05",
+        "date": "2023-12-16"
+      },
+      "duration": "7h 15m",
+      "stops": 0,
+      "price": 820,
+      "baggage": {
+        "cabin": 1,
+        "checked": 1
+      },
+      "aircraft": "Boeing 787",
+      "seatsLeft": 7
+    }
+  ]
+}
