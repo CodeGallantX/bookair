@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Check-in page</title>
+    <link rel="stylesheet" href="./assets/css/check-in.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Check-in</a></li>
+                <li><a href="#">Flight Status</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="check-in">
+            <h1>Check-in</h1>
+            <form>
+                <label for="booking-reference">Booking Reference:</label>
+                <input placeholder="booking reference" type="text" id="booking-reference" name="booking-reference" required>
+                <br>
+                <label for="last-name">Last Name:</label>
+                <input placeholder="last name" type="text" id="last-name" name="last-name" required>
+                <br>
+                <label for="flight-number">Flight Number:</label>
+                <input placeholder="flight number" type="text" id="flight-number" name="flight-number" required>
+                <br>
+                <input type="submit" value="Check-in">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Airline </p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
