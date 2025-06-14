@@ -1,243 +1,535 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <!-- Primary Meta Tags -->
-  <title>BookAir - Book Flights & Hotels | Best Travel Deals</title>
-  <meta name="description" content="BookAir offers the best deals on flights, hotels, and vacation packages. Compare prices, find discounts, and plan your perfect trip with our easy booking platform.">
-  <meta name="keywords" content="flight booking, cheap flights, hotel reservations, travel deals, vacation packages, BookAir">
-  
-  <!-- Open Graph / Facebook Meta Tags -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://codegallantx.github.io/bookair">
-  <meta property="og:title" content="BookAir - Book Flights & Hotels | Best Travel Deals">
-  <meta property="og:description" content="Find the best travel deals on flights, hotels, and vacation packages with BookAir. Compare prices and save on your next trip.">
-  <meta property="og:image" content="https://codegallantx.github.io/bookair/assets/images/bookair-social-share.jpg">
-  
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BookAir - Book Flights & Hotels | Best Travel Deals">
-  <meta name="twitter:description" content="Find the best travel deals on flights, hotels, and vacation packages with BookAir. Compare prices and save on your next trip.">
-  <meta name="twitter:image" content="https://codegallantx.github.io/bookair/assets/images/bookair-social-share.jpg">
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://codegallantx.github.io/bookair">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
-  
-  <!-- Preconnect for external resources -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
-  
-  <!-- CSS Libraries -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-  
-  <!-- Scripts -->
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  
-</head>
-<body>
-    <header>
-  <div>
-    <div class="logo">
-      <h1>Book<span>Air</span></h1>
-    </div>
-    
-    <nav>
-      <ul>
-        <li>
-          <a href="/">
-            <span>Home</span>
-          </a>
-        </li>
-        <li>
-          <a href="./flights.html">
-            <span>Flights</span>
-          </a>
-        </li>
-        <li>
-          <a href="./payment.html">
-            <span>Payment</span>
-          </a>
-        </li>
-        <li>
-          <a href="./check-in.html">
-            <span>Check In</span>
-          </a>
-        </li>
-        <li>
-          <a href="./contact.html">
-            <span>Contact</span>
-          </a>
-        </li>
-        <li>
-          <a href="./booking.html">
-            <span>Booking</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    
-    <div class="header-buttons">
-      <button class="theme-toggle" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-      </button>
-      
-      <button class="special-button" onclick="navigate('flights')" id="getStarted" type="button" aria-label="Get Started">
-        <div class="svg-wrapper-1">
-          <div class="svg-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="#FFF" width="24" height="24" viewBox="0 0 24 24">
-              <path d="M3.414 13.778 2 15.192l4.949 2.121 2.122 4.95 1.414-1.414-.707-3.536L13.091 14l3.61 7.704 1.339-1.339-1.19-10.123 2.828-2.829a2 2 0 1 0-2.828-2.828l-2.903 2.903L3.824 6.297 2.559 7.563l7.644 3.67-3.253 3.253-3.536-.708z"></path>
-            </svg>
-          </div>
-        </div>
-        <span>Get Started</span>
-      </button>
-      
-      <button class="mobile-menu-btn" aria-label="Menu">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Mobile Sidebar -->
-  <div class="mobile-sidebar">
-    <div class="sidebar-header">
-      <h3>Menu</h3>
-      <button type="button" aria-label="Close Sidebar" class="close-sidebar">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-    
-    <ul class="mobile-nav">
-      <li>
-        <a href="/">
-          <span>Home</span>
-        </a>
-      </li>
-      <li>
-        <a href="./flights.html">
-          <span>Flights</span>
-        </a>
-      </li>
-      <li>
-        <a href="./payment.html">
-          <span>Payment</span>
-        </a>
-      </li>
-      <li>
-        <a href="./check-in.html">
-          <span>Check In</span>
-        </a>
-      </li>
-      <li>
-        <a href="./contact.html">
-          <span>Contact</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="mobile-theme-toggle">
-          <i class="fas fa-moon"></i>
-          <span>Dark Mode</span>
-        </a>
-      </li>
-    </ul>
-</div>
-  </header>
+    <!-- Primary Meta Tags -->
+    <title>BookAir - Book Flights & Hotels | Best Travel Deals</title>
+    <meta
+      name="description"
+      content="BookAir offers the best deals on flights, hotels, and vacation packages. Compare prices, find discounts, and plan your perfect trip with our easy booking platform."
+    />
+    <meta
+      name="keywords"
+      content="flight booking, cheap flights, hotel reservations, travel deals, vacation packages, BookAir"
+    />
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codegallantx.github.io/bookair" />
+    <meta
+      property="og:title"
+      content="BookAir - Book Flights & Hotels | Best Travel Deals"
+    />
+    <meta
+      property="og:description"
+      content="Find the best travel deals on flights, hotels, and vacation packages with BookAir. Compare prices and save on your next trip."
+    />
+    <meta
+      property="og:image"
+      content="https://codegallantx.github.io/bookair/assets/images/bookair-social-share.jpg"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="BookAir - Book Flights & Hotels | Best Travel Deals"
+    />
+    <meta
+      name="twitter:description"
+      content="Find the best travel deals on flights, hotels, and vacation packages with BookAir. Compare prices and save on your next trip."
+    />
+    <meta
+      name="twitter:image"
+      content="https://codegallantx.github.io/bookair/assets/images/bookair-social-share.jpg"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://codegallantx.github.io/bookair" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+
+    <!-- Preconnect for external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts -->
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- Scripts -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="desktop-header">
+        <div class="logo">
+          <h1>Book<span>Air</span></h1>
+        </div>
+
+        <nav>
+          <ul>
+            <li>
+              <a href="/">
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="./flights.html">
+                <span>Flights</span>
+              </a>
+            </li>
+            <li>
+              <a href="./payment.html">
+                <span>Payment</span>
+              </a>
+            </li>
+            <li>
+              <a href="./check-in.html">
+                <span>Check In</span>
+              </a>
+            </li>
+            <li>
+              <a href="./contact.html">
+                <span>Contact</span>
+              </a>
+            </li>
+            <li>
+              <a href="./booking.html">
+                <span>Booking</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header-buttons">
+          <button class="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+
+          <button
+            class="special-button"
+            onclick="navigate('flights')"
+            id="getStarted"
+            type="button"
+            aria-label="Get Started"
+          >
+            <div class="svg-wrapper-1">
+              <div class="svg-wrapper">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#FFF"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M3.414 13.778 2 15.192l4.949 2.121 2.122 4.95 1.414-1.414-.707-3.536L13.091 14l3.61 7.704 1.339-1.339-1.19-10.123 2.828-2.829a2 2 0 1 0-2.828-2.828l-2.903 2.903L3.824 6.297 2.559 7.563l7.644 3.67-3.253 3.253-3.536-.708z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <span>Get Started</span>
+          </button>
+
+          <button class="mobile-menu-btn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Sidebar -->
+      <div class="mobile-sidebar">
+        <div class="sidebar-header">
+          <h3>Menu</h3>
+          <button
+            type="button"
+            aria-label="Close Sidebar"
+            class="close-sidebar"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <ul class="mobile-nav">
+          <li>
+            <a href="/">
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="./flights.html">
+              <span>Flights</span>
+            </a>
+          </li>
+          <li>
+            <a href="./payment.html">
+              <span>Payment</span>
+            </a>
+          </li>
+          <li>
+            <a href="./check-in.html">
+              <span>Check In</span>
+            </a>
+          </li>
+          <li>
+            <a href="./contact.html">
+              <span>Contact</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="mobile-theme-toggle">
+              <i class="fas fa-moon"></i>
+              <span>Dark Mode</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
 
     <!-- HERO SECTION -->
     <main>
+      <div class="main">
         <div class="hero-content">
-            <h1 data-aos="fade-right">Discover the World with Ease</h1>
-            <p data-aos="fade-right" class="subtitle">Book your next adventure with our exclusive flight deals and premium services</p>
-            
-            
-            <div data-aos="fade-up" data-aos-delay="100" class="stats">
-                <div class="stat-item">
-                    <span class="stat-number">250+</span>
-                    <span class="stat-label">Destinations</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">1M+</span>
-                    <span class="stat-label">Happy Travelers</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Support</span>
-                </div>
+          <h1 data-aos="fade-right">Discover the World with Ease</h1>
+          <p data-aos="fade-right" class="subtitle">
+            Book your next adventure with our exclusive flight deals and premium
+            services
+          </p>
+
+          <div data-aos="fade-up" data-aos-delay="100" class="stats">
+            <div class="stat-item">
+              <span class="stat-number">250+</span>
+              <span class="stat-label">Destinations</span>
             </div>
-            <div data-aos="fade-up" data-aos-delay="200" class="search-container">
-                <div class="search-field">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <!-- <input type="text" placeholder="From"> -->
-                     <select title="From" name="from" id="from">
-                        <option value="">From</option>
-                        <option value="LG, NG">Lagos, Nigeria</option>
-                        <option value="KN, NG">Kano, Nigeria</option>
-                        <option value="TO, CA">Toronto, Canada</option>
-                        <option value="TK, JP">Tokyo, Japan</option>
-                     </select>
-                    </div>
-                <div class="search-field">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <!-- <input type="text" placeholder="To"> -->
-                    <select title="To" name="to" id="to">
-                       <option value="">To</option>
-                       <option value="LG, NG">Lagos, Nigeria</option>
-                       <option value="KN, NG">Kano, Nigeria</option>
-                       <option value="TO, CA">Toronto, Canada</option>
-                       <option value="TK, JP">Tokyo, Japan</option>
-                    </select>
-                </div>
-                <div class="search-field">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <input type="date" placeholder="Departure">
-                </div>
-                <div class="search-field">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <input type="time" placeholder="Departure">
-                </div>
-                <button class="search-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Search Flights</span>
-                </button>
+            <div class="stat-item">
+              <span class="stat-number">1M+</span>
+              <span class="stat-label">Happy Travelers</span>
             </div>
+            <div class="stat-item">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Support</span>
+            </div>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="200" class="search-container">
+            <div class="search-field">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <!-- <input type="text" placeholder="From"> -->
+              <select title="From" name="from" id="from">
+                <option value="">From</option>
+                <option value="LG, NG">Lagos, Nigeria</option>
+                <option value="KN, NG">Kano, Nigeria</option>
+                <option value="TO, CA">Toronto, Canada</option>
+                <option value="TK, JP">Tokyo, Japan</option>
+              </select>
+            </div>
+            <div class="search-field">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <!-- <input type="text" placeholder="To"> -->
+              <select title="To" name="to" id="to">
+                <option value="">To</option>
+                <option value="LG, NG">Lagos, Nigeria</option>
+                <option value="KN, NG">Kano, Nigeria</option>
+                <option value="TO, CA">Toronto, Canada</option>
+                <option value="TK, JP">Tokyo, Japan</option>
+              </select>
+            </div>
+            <div class="search-field">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <input type="date" placeholder="Departure" />
+            </div>
+            <div class="search-field">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <input type="time" placeholder="Departure" />
+            </div>
+            <button class="search-btn">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>Search Flights</span>
+            </button>
+          </div>
         </div>
-        <div data-aos="fade-left"  class="hero-image">
-            <!-- Recommended images from Unsplash:
+        <div data-aos="fade-left" class="hero-image">
+          <!-- Recommended images from Unsplash:
             - https://unsplash.com/photos/airplane-flying-over-clouds-during-daytime-QdAAasrZhdk
             - https://unsplash.com/photos/white-and-red-airplane-on-airport-QdAAasrZhdk
             - https://unsplash.com/photos/aerial-view-of-city-during-daytime-QdAAasrZhdk -->
-            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="Airplane flying over clouds" loading="lazy">
+          <img
+            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
+            alt="Airplane flying over clouds"
+            loading="lazy"
+          />
         </div>
+      </div>
+
+      <!-- Tohir Contribution -->
+      <section class="flight-offers">
+        <div class="section-header">
+          <p class="tiny">Offer Deal</p>
+          <h3 class="big">Flight Offer Deal</h3>
+        </div>
+        <div class="flight-grid">
+          <div class="flight-card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTFHv9Z-WW5VT53jNqVNGG4UhMp1B3px1Q_w&s"
+              alt="lagos to kano"
+            />
+            <div class="flight-text">
+              <h5>Lagos To Kano</h5>
+              <p class="date">20 Apr 2025 - 25 Apr 2025</p>
+              <p class="class">Economy Class</p>
+              <p class="amount">₦150,000</p>
+            </div>
+          </div>
+          <div class="flight-card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYVShFV4C_CjlKXL9adoMyBPOxHs1pmWGLQA&s"
+              alt="lagos to abuja"
+            />
+            <div class="flight-text">
+              <h5>Lagos To Abuja</h5>
+              <p class="date">20 Apr 2025 - 25 Apr 2025</p>
+              <p class="class">Economy Class</p>
+              <p class="amount">₦100,000</p>
+            </div>
+          </div>
+          <div class="flight-card">
+            <img
+              src="https://citymirrornews.com/wp-content/uploads/2023/05/NAHCON-New-1.jpg"
+              alt="lagos to sokoto"
+            />
+            <div class="flight-text">
+              <h5>Lagos To Sokoto</h5>
+              <p class="date">30 Apr 2025 - 5 May 2025</p>
+              <p class="class">Economy Class</p>
+              <p class="amount">₦140,000</p>
+            </div>
+          </div>
+          <div class="flight-card">
+            <img
+              src="https://ichef.bbci.co.uk/news/1536/cpsprodpb/182C5/production/_124631099_gettyimages-1238915286_976549.png.webp"
+              alt="lagos to Delta"
+            />
+            <div class="flight-text">
+              <h5>Lagos To Delta</h5>
+              <p class="date">25 Apr 2025 - 30 Apr 2025</p>
+              <p class="class">Economy Class</p>
+              <p class="amount">₦90,000</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="services-section">
+        <div class="section-header">
+          <p class="tiny">Our Services</p>
+          <h3 class="big">Our Great Flight Options</h3>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <h4>01</h4>
+            <h3>Book Preferred Seat Now</h3>
+            <ul>
+              <li>Sit Your, Window or Aisle</li>
+              <li>Pick Your Prefect Seat Early</li>
+              <li>Lock in Your Preferred Seat Now</li>
+              <li>Exclusively Reserved for You.</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <h4>02</h4>
+            <h3>Plan Ahead, Travel Light</h3>
+            <ul>
+              <li>Enjoy a Stress-Free Journey</li>
+              <li>Book Ahead for a Smoooth Journey</li>
+              <li>Protected for Flight Changes</li>
+              <li>Coverage for Cancellations, Accidents</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <h4>03</h4>
+            <h3>Reserve Your Baggage</h3>
+            <ul>
+              <li>Secure Your Bags, Enjoy the Ride</li>
+              <li>Rearrange Your Baggade Reservation</li>
+              <li>Set Your Allowance Now and Save More</li>
+              <li>Save Up to 90% on Baggage Fees</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="destinations-section">
+        <bg
+          ><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8GITiKKyniEae5T9h9tpJBJE-gkAhuPo_2Q&s"
+            alt="Pilot in the Airplan"
+        /></bg>
+        <div class="section-header">
+          <p class="tiny">Our Services</p>
+          <h3 class="big">Your Great Destination</h3>
+        </div>
+        <div class="destination-content">
+          <p>
+            Airlines play a crucial role in global connectivity, offering
+            passengers convenient and efficient travel across countries and
+            continents. With various services such as baggage allowances,
+            in-flight entertainment.
+          </p>
+        </div>
+      </section>
+
+      <section class="destination">
+        <div class="section-header">
+          <p class="tiny">Destination</p>
+          <h3 class="big">Popular Destinations</h3>
+        </div>
+        <div class="destination-grid">
+          <div class="destination-card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa2epEG3hQ7sMCjPQVmqps5zwOnv9Luo_Kww&s"
+              alt="Abuja"
+            />
+            <h2>Abuja</h2>
+          </div>
+          <div class="destination-card">
+            <img
+              src="https://propertypro.ng/blog/wp-content/uploads/2017/03/Lagos-as-the-best-City-in-Nigeria.jpg"
+              alt="Lagos"
+            />
+            <h2>Lagos</h2>
+          </div>
+          <div class="destination-card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn-WtKHx3pD4bFiCjdoMz6cihfBPqiIRwXAA&s"
+              alt="Kano"
+            />
+            <h2>Kano</h2>
+          </div>
+          <div class="destination-card">
+            <img
+              src="https://cdn.businessday.ng/2023/09/Screenshot-2023-09-23-122033-700x348.jpg"
+              alt="Port Harcourt"
+            />
+            <h2>Port Harcourt</h2>
+          </div>
+        </div>
+      </section>
     </main>
-    
+
     <script src="./assets/js/script.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+      AOS.init();
     </script>
-</body>
+  </body>
 </html>

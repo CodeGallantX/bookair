@@ -1,3 +1,6 @@
+const cardholderName = document.getElementById('cardholderName')
+const expiryDate = document.getElementById('expiryDate')
+
 document.querySelector('input[placeholder="1111 2222 3333 4444"]').addEventListener('input', function (e) {
     let value = e.target.value.replace(/\s+/g, '');
     if (value.length > 0) {
@@ -17,13 +20,14 @@ document.querySelector('input[placeholder="1111 2222 3333 4444"]').addEventListe
 
 // Update cardholder name in preview
 document.querySelector('input[placeholder="Aliko Dangote"]').addEventListener('input', function (e) {
-    const name = e.target.value.toUpperCase() || 'ALIKO DANGOTE ';
+    // const name = e.target.value.toUpperCase() || 'ALIKO DANGOTE ';
+    const cardholderName = e.target.value.toUpperCase() || 'ALIKO DANGOTE ';
     document.querySelector('.card-preview .card-details div:first-child div:last-child').textContent = name;
 });
 
 // Update expiry date in preview
 document.querySelector('input[placeholder="MM/YY"]').addEventListener('input', function (e) {
-    const expiry = e.target.value || '11/22';
+    const expiryDate = e.target.value || '11/22';
     document.querySelector('.card-preview .card-details div:last-child div:last-child').textContent = expiry;
 });
 
