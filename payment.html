@@ -290,7 +290,7 @@
           
           <!-- Credit Card Preview -->
           <div class="card-preview">
-            <div class="card-company">VISA</div>
+            <div id="cardCompany" class="card-company">VISA</div>
             <div class="card-number">•••• •••• •••• 4444</div>
             <div class="card-details">
               <div>
@@ -334,7 +334,7 @@
           </div>
         </div>
 
-        <button class="pay-btn">
+        <button onclick="navigate('booking-success')" class="pay-btn">
           <i class="fas fa-lock"></i>
           Pay ₦210,000 Now
         </button>
@@ -351,12 +351,20 @@
           <p><strong><i class="far fa-calendar-alt"></i> Sunday, 31.10.2024</strong><br>
           <i class="fas fa-plane-departure"></i> Kiev (KBP) → Paris (CDG)<br>
           <i class="far fa-clock"></i> 13:50 – 18:45 | <i class="fas fa-chair"></i> Economy</p>
+          <div class="modify-booking">
+            <button onclick="navigate('flights')" class="add-booking">+ Book another</button>
+            <button class="remove-booking">Cancel booking</button>
+          </div>
         </div>
         
         <div class="flight-detail">
           <p><strong><i class="far fa-calendar-alt"></i> Wednesday, 11.11.2024</strong><br>
           <i class="fas fa-plane-departure"></i> Paris (CDG) → Kiev (KBP)<br>
           <i class="far fa-clock"></i> 06:45 – 20:35 | <i class="fas fa-chair"></i> Economy</p>
+          <div class="modify-booking">
+            <button onclick="navigate('flights')" class="add-booking">+ Book another</button>
+            <button class="remove-booking">Cancel booking</button>
+          </div>
         </div>
         
         <p><strong><i class="fas fa-suitcase"></i> Bags:</strong> 1 checked bag (23kg)</p>

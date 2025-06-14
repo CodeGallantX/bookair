@@ -17,7 +17,7 @@
   --radius-lg: 0.75rem;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --sidebar-bg: #ffffff;
-  --header-bg: #fafaff;
+  --header-bg: #fafaff74;
 }
 
 /* Dark Theme */
@@ -34,7 +34,7 @@
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.3);
   --sidebar-bg: #16213e;
-  --header-bg: #1a1a2e;
+  --header-bg: #1a1a2e74;
 }
 
 * {
@@ -90,6 +90,8 @@ body {
   z-index: 1000;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
+  -webkit-backdrop-filter: blur(2.5);
+  backdrop-filter: blur(2.5);
 }
 
 .logo {

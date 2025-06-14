@@ -16,22 +16,45 @@ document.querySelector('input[placeholder="1111 2222 3333 4444"]').addEventListe
     } else {
         document.querySelector('.card-preview .card-number').textContent = '•••• •••• •••• 4444';
     }
+    
+    
 });
+
+// if (value.slice(0, 4) = "5732") {
+//     company == 'Verve'
+// }
+// else if (value.slice(0, 4) = "4520") {
+//     company == 'Visa'
+// }
+// if (value.slice(0, 4) = "5732") {
+//     company == 'Verve'
+// }
+
+let company = "VISA"
+
+document.getElementById('cardCompany').textContent =  company;
+
+
 
 // Update cardholder name in preview
 document.querySelector('input[placeholder="Aliko Dangote"]').addEventListener('input', function (e) {
     // const name = e.target.value.toUpperCase() || 'ALIKO DANGOTE ';
-    const cardholderName = e.target.value.toUpperCase() || 'ALIKO DANGOTE ';
-    document.querySelector('.card-preview .card-details div:first-child div:last-child').textContent = name;
+    let cardholderName = e.target.value.toUpperCase() || 'ALIKO DANGOTE ';
+    document.querySelector('.card-preview .card-details div:first-child div:last-child').textContent = cardholderName;
 });
 
 // Update expiry date in preview
 document.querySelector('input[placeholder="MM/YY"]').addEventListener('input', function (e) {
-    const expiryDate = e.target.value || '11/22';
-    document.querySelector('.card-preview .card-details div:last-child div:last-child').textContent = expiry;
+    let expiryDate = e.target.value || '11/112';
+    document.querySelector('.card-preview .card-details div:last-child div:last-child').textContent = expiryDate;
 });
 
 function navigate(page) {
     console.log(`Navigating to ${page}`);
-    window.location.href = "./check-in.html"
+    window.location.href = `${page}.html`
 }
+
+
+document.querySelector('.remove-booking').addEventListener('onclick', function(e) {
+
+})

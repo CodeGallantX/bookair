@@ -1,22 +1,15 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+@import url('./style.css');
+
 
 body {
-    background-color: #e0f2f1;
-    padding: 20px;
+    background: var(--bg-light);
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
+    max-width: 95%;
+    margin: auto;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -103,10 +96,17 @@ h2 {
     top: 20px;
     right: 20px;
     background-color: transparent;
-    border: 1px solid #666;
+    border: 1px solid rgb(250, 80, 80);
+    color: rgb(250, 80, 80);
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: 500;
+}
+
+.remove-passenger:hover {
+    background: rgba(250, 80, 80, 0.3);
+    /* color: var(--bg-light) */
 }
 
 .action-buttons {
@@ -123,11 +123,18 @@ h2 {
 }
 
 .add-passenger {
-    background-color: #e0f2f1;
-    border: 1px solid #666;
+    border: 1px solid var(--bg-dark);
+    color: var(--bg-dark);
+    transition: var(--transition);
+
+}
+
+.add-passenger:hover {
+    background: var(--bg-dark);
+    color: var(--bg-light);
 }
 
 .continue-btn {
-    background-color: #6a1b9a;
+    background-color: var(--bg-dark);
     color: #fff;
 }

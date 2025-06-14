@@ -1,0 +1,55 @@
+@import url('./style.css');
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: 60%;
+}
+
+.success-message {
+    display: flex;
+    gap: 4px;
+    width: 100%;
+    padding: 1rem 0.6rem;
+    color: var(--bg-dark);
+    background: var(--accent);
+}
+
+.ticket-container {
+    padding: 1rem;
+}
+
+.code {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+}
+
+.code > h4 {
+    color: var(--text-light)
+}
+
+.code > h1 {
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+.passenger-info > h1 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.passengers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.passenger > p ~ strong {
+    color: var(--text-light);
+}
