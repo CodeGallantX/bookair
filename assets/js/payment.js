@@ -55,6 +55,6 @@ function navigate(page) {
 }
 
 
-document.querySelector('.remove-booking').addEventListener('onclick', function(e) {
+// document.querySelector('.remove-booking').addEventListener('onclick', function(e) {
 
-})
+// })

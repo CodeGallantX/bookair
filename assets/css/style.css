@@ -69,6 +69,7 @@ button {
 body {
   font-family: "Plus Jakarta Sans";
   color: var(--text-color);
+  background: var(--bg-light);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -617,13 +618,27 @@ h1 {
 .services-section,
 .destinations-section,
 .destination {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 4rem 6rem;
+  max-width: 100%;
+  /* margin: 0 auto; */
+  margin: 4rem 0;
+  /* background: var(--bg-light); */
 }
 
-.section-header {
+.section-header-more {
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-btn {
+  padding: 1rem 2rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
 }
 
 .tiny {
@@ -649,44 +664,52 @@ h1 {
 }
 
 .flight-card {
-  background-color: #fff;
+  /* background-color: #fff; */
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 4px;
 }
 
 .flight-card:hover {
-  transform: translateY(-5px);
+  /* transform: translateY(-5px); */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .flight-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+border-radius: 8px;
+width: 100%;
+height: 180px;
+object-fit: cover;
+z-index: -10;
 }
 
 .flight-text {
-  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  /* border-top-left-radius: 12px; */
+  /* border-top-right-radius: 12px; */
+  margin-top: -10px;
+  padding: 20px 14px;
 }
 
 .flight-text h5 {
   font-size: 1.2rem;
   margin-bottom: 8px;
-  color: #222;
+  color: var(--text-color);
 }
 
 .flight-text p {
   font-size: 0.9rem;
   color: #555;
-  margin-bottom: 6px;
+  /* margin-bottom: 6px; */
 }
 
 .flight-text .amount {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #ff4c3b;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
   margin-top: 10px;
 }
 
@@ -780,59 +803,6 @@ h1 {
   font-size: 1.2rem;
   margin-bottom: 8px;
   color: #222;
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .hero-section {
-    padding: 4rem;
-  }
-
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-
-  .flight-offers,
-  .services-section,
-  .destinations-section,
-  .destination {
-    padding: 4rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .hero-section {
-    flex-direction: column;
-    padding: 3rem 2rem;
-    height: auto;
-  }
-
-  .hero-content {
-    max-width: 100%;
-    margin-bottom: 3rem;
-  }
-
-  .hero-images {
-    max-width: 100%;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .image-row {
-    flex-direction: column;
-  }
-
-  .navbar-links {
-    display: none;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .navbar-right {
-    display: none;
-  }
 }
 
 @media (max-width: 768px) {

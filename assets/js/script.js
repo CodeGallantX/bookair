@@ -2,8 +2,6 @@ function navigate(url) {
   window.location.href = `${url}.html`;
 }
 
-
-
 // Mobile Menu Toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const closeSidebarBtn = document.querySelector('.close-sidebar');
@@ -89,3 +87,10 @@ function navigate(page) {
   console.log(`Navigating to ${page}`);
   window.location.href = `${page}.html`;
 }
+
+document.getElementByClass('flight-card').addEventListener('click', () => {
+  window.location.href = './booking.html'
+})
+
+
+
