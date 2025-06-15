@@ -1,41 +1,16 @@
-/* Base Styles */
-:root {
-  --primary-color: #2563eb;
-  --primary-hover: #1d4ed8;
-  --secondary-color: #f8fafc;
-  --text-color: #1e293b;
-  --text-light: #64748b;
-  --border-color: #e2e8f0;
-  --success-color: #10b981;
-  --warning-color: #f59e0b;
-  --danger-color: #ef4444;
-  --white: #ffffff;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --radius-sm: 0.25rem;
-  --radius: 0.5rem;
-  --radius-lg: 0.75rem;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import url('./style.css');
 
 body {
   font-family: 'Roboto', sans-serif;
   color: var(--text-color);
-  background-color: var(--secondary-color);
+  background-color: var(--bg-light);
   line-height: 1.5;
 }
 
 .container {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  /* max-width: 1200px; */
+  /* margin: 0 auto; */
   padding: 0 1rem;
 }
 
@@ -43,8 +18,8 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-sm);
+  padding: 0.3rem 1rem;
+  border-radius: var(--radius-md);
   border: 1px solid transparent;
   font-size: 0.875rem;
   font-weight: 500;
@@ -53,12 +28,8 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--primary-color);
-  color: var(--white);
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-hover);
+  background-color: var(--primary);
+  color: var(--bg-light);
 }
 
 .btn-outline {
@@ -73,7 +44,7 @@ body {
 
 /* Header Styles */
 .header {
-  background-color: var(--white);
+  background-color: var(--bg-light);
   box-shadow: var(--shadow-sm);
   padding: 1rem 0;
   position: sticky;
@@ -90,7 +61,7 @@ body {
 .logo h1 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--primary);
 }
 
 .nav ul {
@@ -114,7 +85,7 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--primary-color);
+  background-color: var(--primary);
 }
 
 .user-actions {
@@ -127,7 +98,7 @@ body {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: var(--white);
+  background-color: var(--bg-light);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-md);
   padding: 0.5rem 0;
@@ -155,9 +126,9 @@ body {
 
 /* Search Box Styles */
 .search-box {
-  background-color: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background-color: var(--bg-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
   padding: 1.5rem;
   margin-bottom: 2rem;
 }
@@ -179,7 +150,7 @@ body {
 }
 
 .tab.active {
-  color: var(--primary-color);
+  color: var(--primary);
 }
 
 .tab.active::after {
@@ -189,7 +160,7 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--primary-color);
+  background-color: var(--primary);
 }
 
 .search-form {
@@ -225,7 +196,7 @@ body {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: var(--white);
+  background-color: var(--bg-light);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-md);
   padding: 1rem;
@@ -258,7 +229,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--secondary-color);
+  background-color: var(--text-light);
   border: none;
   cursor: pointer;
 }
@@ -276,9 +247,9 @@ body {
 
 .filters {
   width: 250px;
-  background-color: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background-color: var(--bg-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
   padding: 1.5rem;
   height: fit-content;
 }
@@ -328,9 +299,9 @@ body {
 }
 
 .checkbox input:checked + .checkmark {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: var(--white);
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--bg-light);
 }
 
 .checkbox input:checked + .checkmark::after {
@@ -374,9 +345,9 @@ body {
 }
 
 .sort-tab.active {
-  background-color: var(--primary-color);
-  color: var(--white);
-  border-color: var(--primary-color);
+  background-color: var(--primary);
+  color: var(--bg-light);
+  border-color: var(--primary);
 }
 
 .time-filters {
@@ -401,9 +372,9 @@ body {
 }
 
 .time-option.active {
-  background-color: var(--primary-color);
-  color: var(--white);
-  border-color: var(--primary-color);
+  background-color: var(--primary);
+  color: var(--bg-light);
+  border-color: var(--primary);
 }
 
 .results {
@@ -431,9 +402,9 @@ body {
 }
 
 .flight-card {
-  background-color: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background-color: var(--bg-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -548,8 +519,8 @@ body {
 
 .select-btn {
   padding: 0.5rem 1rem;
-  background-color: var(--primary-color);
-  color: var(--white);
+  background-color: var(--primary);
+  color: var(--bg-light);
   border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
@@ -560,9 +531,9 @@ body {
   width: 100%;
   margin-top: 2rem;
   padding: 0.75rem;
-  background-color: var(--white);
+  background-color: var(--bg-light);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius);
+  border-radius: var(--radius-md);
   font-weight: 500;
 }
 
@@ -611,8 +582,8 @@ body {
 }
 
 .step.active .step-number {
-  background-color: var(--primary-color);
-  color: var(--white);
+  background-color: var(--primary);
+  color: var(--bg-light);
 }
 
 .step-name {
@@ -621,14 +592,14 @@ body {
 }
 
 .step.active .step-name {
-  color: var(--primary-color);
+  color: var(--primary);
   font-weight: 500;
 }
 
 .booking-summary {
-  background-color: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background-color: var(--bg-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
   padding: 1.5rem;
   margin-bottom: 2rem;
 }
@@ -653,8 +624,8 @@ body {
 }
 
 .price-summary {
-  background-color: var(--secondary-color);
-  border-radius: var(--radius);
+  background-color: var(--text-light);
+  border-radius: var(--radius-md);
   padding: 1.5rem;
 }
 
@@ -679,9 +650,9 @@ body {
 }
 
 .passenger-form {
-  background-color: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background-color: var(--bg-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
   padding: 1.5rem;
 }
 
