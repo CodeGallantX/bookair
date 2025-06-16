@@ -1,1 +1,416 @@
 @import url('./style.css');
+
+/* Check-in Page Styles */
+.check-in-page {
+    background-color: var(--bg-light);
+    min-height: calc(100vh - 120px);
+    padding: 2rem 0;
+}
+
+.check-in-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.check-in-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.check-in-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.check-in-header p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.check-in-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* Form Styles */
+#checkInForm {
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.1);
+}
+
+.hint {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--text-light);
+    font-size: 0.8rem;
+}
+
+.check-in-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.check-in-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Help Section */
+.check-in-help {
+    padding: 2rem;
+    background-color: var(--bg-light);
+}
+
+.check-in-help h3 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.check-in-help ul {
+    list-style: none;
+    padding: 0;
+}
+
+.check-in-help li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.check-in-help i {
+    color: var(--primary);
+    margin-top: 0.2rem;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: color 0.2s ease;
+}
+
+.close-modal:hover {
+    color: var(--text-dark);
+}
+
+.modal-body {
+    padding: 2rem;
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.success-icon i {
+    animation: bounce 1s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.modal-body h2 {
+    font-size: 1.75rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.modal-body p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.flight-summary {
+    background-color: var(--bg-light);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.flight-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.flight-number {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.route {
+    font-weight: 600;
+}
+
+.passenger-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.passenger-name {
+    font-weight: 600;
+}
+
+.seat {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.departure-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.date {
+    font-weight: 600;
+}
+
+.time {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.modal-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.modal-actions .btn {
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal-actions .btn.primary {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+}
+
+.modal-actions .btn.primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.modal-actions .btn.secondary {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.modal-actions .btn.secondary:hover {
+    background-color: rgba(var(--primary-rgb), 0.1);
+}
+
+.next-steps {
+    text-align: left;
+}
+
+.next-steps h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.next-steps ul {
+    list-style: none;
+    padding: 0;
+}
+
+.next-steps li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.next-steps i {
+    color: var(--primary);
+}
+
+/* Footer Styles */
+.main-footer {
+    background-color: var(--bg-dark);
+    color: white;
+    padding: 2rem 0 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .check-in-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-actions {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .check-in-header h1 {
+        font-size: 2rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
