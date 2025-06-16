@@ -86,7 +86,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background: var(--header-bg);
+  background: var(--bg-light);
   border-bottom: 1px solid var(--border-color);
   z-index: 1000;
   box-shadow: var(--shadow-sm);
