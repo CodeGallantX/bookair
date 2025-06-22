@@ -1,0 +1,70 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f2f6fa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.contact-container {
+  margin-top: 50px;
+  width: 100%;
+  max-width: 550px;
+  padding: 20px;
+}
+
+.contact-form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #0077cc;
+}
+
+.form-block {
+  margin-bottom: 20px;
+}
+
+.form-block label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-block input,
+.form-block textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-block textarea {
+  resize: vertical;
+}
+
+.form-block button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.form-block button:hover {
+  background-color: #005fa3;
+}
