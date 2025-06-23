@@ -4,7 +4,7 @@
 .check-in-page {
     background-color: var(--bg-light);
     min-height: calc(100vh - 120px);
-    padding: 2rem 0;
+    padding: 8rem 0;
 }
 
 .check-in-container {
@@ -95,7 +95,7 @@
 }
 
 .check-in-btn:hover {
-    background-color: var(--primary-dark);
+    background-color: var(--bg-dark);
 }
 
 /* Help Section */
