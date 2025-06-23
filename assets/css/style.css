@@ -670,6 +670,7 @@ h1 {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   padding: 4px;
+  cursor: pointer;
 }
 
 .flight-card:hover {
