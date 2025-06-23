@@ -79,6 +79,7 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/check-in.css" />
 
     <!-- Scripts -->
     <script
@@ -232,7 +233,7 @@
               <span class="stat-label">Support</span>
             </div>
           </div>
-          <div data-aos="fade-up" data-aos-delay="200" class="search-container">
+          <form method="get" action="./flights.html" data-aos="fade-up" data-aos-delay="200" class="search-container">
             <div class="search-field">
               <svg
                 width="20"
@@ -333,7 +334,7 @@
               </svg>
               <input type="time" placeholder="Departure" />
             </div>
-            <button class="search-btn">
+            <button class="search-btn" type="submit" onclick="window.location.href='flights.html'">
               <svg
                 width="20"
                 height="20"
@@ -351,7 +352,7 @@
               </svg>
               <span>Search Flights</span>
             </button>
-          </div>
+          </form>
         </div>
         <div data-aos="fade-left" class="hero-image">
           <!-- Recommended images from Unsplash:
@@ -476,7 +477,7 @@
         </div>
       </section>
 
-      <section class="destinations-section">
+      <!-- <section class="destinations-section">
         <bg
           ><img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8GITiKKyniEae5T9h9tpJBJE-gkAhuPo_2Q&s"
@@ -494,7 +495,7 @@
             in-flight entertainment.
           </p>
         </div>
-      </section>
+      </section> -->
 
       <section class="destination">
         <div class="section-header">
@@ -532,7 +533,50 @@
           </div>
         </div>
       </section>
+
     </main>
+    <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>BookAir</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press Center</a></li>
+          <li><a href="#">Travel Agents</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Baggage Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Feedback</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2023 BookAir. All rights reserved.</p>
+    </div>
+  </footer>
 
     <script src="./assets/js/script.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
