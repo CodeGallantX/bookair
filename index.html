@@ -212,290 +212,479 @@
     <!-- HERO SECTION -->
     <main>
       <div class="main">
-        <div class="hero-content">
-          <h1 data-aos="fade-right">Discover the World with Ease</h1>
-          <p data-aos="fade-right" class="subtitle">
-            Book your next adventure with our exclusive flight deals and premium
-            services
-          </p>
+  <div class="hero-content">
+    <h1 data-aos="fade-right">Discover the World with Ease</h1>
+    <p data-aos="fade-right" class="subtitle">
+      Book your next adventure with our exclusive flight deals and premium
+      services
+    </p>
 
-          <div data-aos="fade-up" data-aos-delay="100" class="stats">
-            <div class="stat-item">
-              <span class="stat-number">250+</span>
-              <span class="stat-label">Destinations</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">1M+</span>
-              <span class="stat-label">Happy Travelers</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">24/7</span>
-              <span class="stat-label">Support</span>
+    <div data-aos="fade-up" data-aos-delay="100" class="stats">
+      <div class="stat-item">
+        <span class="stat-number">250+</span>
+        <span class="stat-label">Destinations</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">1M+</span>
+        <span class="stat-label">Happy Travelers</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">24/7</span>
+        <span class="stat-label">Support</span>
+      </div>
+    </div>
+
+    <form method="GET" action="./flights.html" data-aos="fade-up" data-aos-delay="200" class="flight-search-form">
+      <div class="form-grid">
+        <!-- Origin Field -->
+        <div class="form-field">
+          <div class="input-with-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="input-container">
+              <label for="origin">Departure City</label>
+              <select id="origin" name="origin" required aria-label="Select departure city">
+                <option value="">From Where?</option>
+                <option value="LOS">Lagos, Nigeria (LOS)</option>
+                <option value="ABV">Abuja, Nigeria (ABV)</option>
+                <option value="KAN">Kano, Nigeria (KAN)</option>
+                <option value="YYZ">Toronto, Canada (YYZ)</option>
+                <option value="NRT">Tokyo, Japan (NRT)</option>
+                <option value="JFK">New York, USA (JFK)</option>
+                <option value="LHR">London, UK (LHR)</option>
+                <option value="DXB">Dubai, UAE (DXB)</option>
+              </select>
             </div>
           </div>
-          <form method="get" action="./flights.html" data-aos="fade-up" data-aos-delay="200" class="search-container">
-            <div class="search-field">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <!-- <input type="text" placeholder="From"> -->
-              <select title="From" name="from" id="from">
-                <option value="">From</option>
-                <option value="LG, NG">Lagos, Nigeria</option>
-                <option value="KN, NG">Kano, Nigeria</option>
-                <option value="TO, CA">Toronto, Canada</option>
-                <option value="TK, JP">Tokyo, Japan</option>
-              </select>
-            </div>
-            <div class="search-field">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <!-- <input type="text" placeholder="To"> -->
-              <select title="To" name="to" id="to">
-                <option value="">To</option>
-                <option value="LG, NG">Lagos, Nigeria</option>
-                <option value="KN, NG">Kano, Nigeria</option>
-                <option value="TO, CA">Toronto, Canada</option>
-                <option value="TK, JP">Tokyo, Japan</option>
-              </select>
-            </div>
-            <div class="search-field">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <input type="date" placeholder="Departure" />
-            </div>
-            <div class="search-field">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <input type="time" placeholder="Departure" />
-            </div>
-            <button class="search-btn" type="submit" onclick="window.location.href='flights.html'">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span>Search Flights</span>
-            </button>
-          </form>
-
-          <form method="GET" action="./flights.html" data-aos="fade-up" data-aos-delay="200" class="search-container">
-  <!-- Origin -->
-  <div class="search-field">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" 
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" 
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <select title="Departure City" name="origin" id="origin" required>
-      <option value="">From</option>
-      <option value="LOS">Lagos (LOS)</option>
-      <option value="ABV">Abuja (ABV)</option>
-      <option value="KAN">Kano (KAN)</option>
-      <option value="YYZ">Toronto (YYZ)</option>
-      <option value="NRT">Tokyo Narita (NRT)</option>
-      <option value="JFK">New York (JFK)</option>
-      <option value="LHR">London Heathrow (LHR)</option>
-      <option value="DXB">Dubai (DXB)</option>
-    </select>
-  </div>
-
-  <!-- Destination -->
-  <div class="search-field">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" 
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" 
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <select title="Destination City" name="destination" id="destination" required>
-      <option value="">To</option>
-      <option value="LOS">Lagos (LOS)</option>
-      <option value="ABV">Abuja (ABV)</option>
-      <option value="KAN">Kano (KAN)</option>
-      <option value="YYZ">Toronto (YYZ)</option>
-      <option value="NRT">Tokyo Narita (NRT)</option>
-      <option value="JFK">New York (JFK)</option>
-      <option value="LHR">London Heathrow (LHR)</option>
-      <option value="DXB">Dubai (DXB)</option>
-    </select>
-  </div>
-
-  <!-- Departure Date -->
-  <div class="search-field">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z" 
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <input type="date" name="departureDate" id="departureDate" placeholder="Departure" min="<?= date('Y-m-d') ?>" required />
-  </div>
-
-  <!-- Return Date -->
-  <div class="search-field">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z" 
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <input type="date" name="returnDate" id="returnDate" placeholder="Return" min="<?= date('Y-m-d') ?>" />
-  </div>
-
-  <!-- Travel Class -->
-  <div class="search-field">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 11L12 2L21 11V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V11Z" 
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M9 22V12H15V22" 
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <select name="travelClass" id="travelClass">
-      <option value="economy">Economy Class</option>
-      <option value="premium">Premium Economy</option>
-      <option value="business">Business Class</option>
-      <option value="first">First Class</option>
-    </select>
-  </div>
-
-  <!-- Passengers -->
-  <div class="search-field">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" 
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" 
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" 
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" 
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <select name="passengers" id="passengers">
-      <option value="1">1 Passenger</option>
-      <option value="2" selected>2 Passengers</option>
-      <option value="3">3 Passengers</option>
-      <option value="4">4 Passengers</option>
-      <option value="5">5 Passengers</option>
-      <option value="6">6 Passengers</option>
-    </select>
-  </div>
-
-  <!-- Search Button -->
-  <button class="search-btn" type="submit">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" 
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <span>Search Flights</span>
-  </button>
-</form>
-
-<script>
-  // Set minimum date for return date based on departure date
-  document.getElementById('departureDate').addEventListener('change', function() {
-    const departureDate = this.value;
-    document.getElementById('returnDate').min = departureDate;
-    
-    // If return date is before departure date, reset it
-    if (document.getElementById('returnDate').value && 
-        document.getElementById('returnDate').value < departureDate) {
-      document.getElementById('returnDate').value = '';
-    }
-  });
-
-  // Handle form submission to pass parameters to flights.html
-  document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const formData = new FormData(this);
-    const params = new URLSearchParams(formData).toString();
-    
-    window.location.href = `flights.html?${params}`;
-  });
-</script>
-          
         </div>
-        <div data-aos="fade-left" class="hero-image">
-          <img
-            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
-            alt="Airplane flying over clouds"
-            loading="lazy"
-          />
+
+        <!-- Destination Field -->
+        <div class="form-field">
+          <div class="input-with-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="input-container">
+              <label for="destination">Destination City</label>
+              <select id="destination" name="destination" required aria-label="Select destination city">
+                <option value="">To Where?</option>
+                <option value="LOS">Lagos, Nigeria (LOS)</option>
+                <option value="ABV">Abuja, Nigeria (ABV)</option>
+                <option value="KAN">Kano, Nigeria (KAN)</option>
+                <option value="YYZ">Toronto, Canada (YYZ)</option>
+                <option value="NRT">Tokyo, Japan (NRT)</option>
+                <option value="JFK">New York, USA (JFK)</option>
+                <option value="LHR">London, UK (LHR)</option>
+                <option value="DXB">Dubai, UAE (DXB)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Departure Date -->
+        <div class="form-field">
+          <div class="input-with-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="input-container">
+              <label for="departureDate">Departure Date</label>
+              <input type="date" id="departureDate" name="departureDate" min="<?= date('Y-m-d') ?>" required aria-required="true" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Return Date -->
+        <div class="form-field">
+          <div class="input-with-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="input-container">
+              <label for="returnDate">Return Date (Optional)</label>
+              <input type="date" id="returnDate" name="returnDate" min="<?= date('Y-m-d') ?>" aria-label="Return date (optional)" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Travel Class -->
+        <div class="form-field">
+          <div class="input-with-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 11L12 2L21 11V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V11Z" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 22V12H15V22" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="input-container">
+              <label for="travelClass">Travel Class</label>
+              <select id="travelClass" name="travelClass" aria-label="Select travel class">
+                <option value="economy">Economy Class</option>
+                <option value="premium">Premium Economy</option>
+                <option value="business">Business Class</option>
+                <option value="first">First Class</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Passengers -->
+        <div class="form-field">
+          <div class="input-with-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="input-container">
+              <label for="passengers">Passengers</label>
+              <select id="passengers" name="passengers" aria-label="Number of passengers">
+                <option value="1">1 Passenger</option>
+                <option value="2" selected>2 Passengers</option>
+                <option value="3">3 Passengers</option>
+                <option value="4">4 Passengers</option>
+                <option value="5">5 Passengers</option>
+                <option value="6">6 Passengers</option>
+                <option value="group">Group (7+)</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button type="reset" class="secondary-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M19 7L7 19M7 7L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Clear All</span>
+        </button>
+        <button type="submit" class="search-btn primary-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" 
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Search Flights</span>
+        </button>
+      </div>
+    </form>
+  </div>
+  
+  <div data-aos="fade-left" class="hero-image">
+    <img
+      src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
+      alt="Airplane flying over clouds"
+      loading="lazy"
+    />
+  </div>
+</div>
+
+<style>
+  .main {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .hero-content {
+    flex: 1;
+    padding-right: 2rem;
+  }
+
+  .hero-image {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .hero-image img:hover {
+    transform: scale(1.02);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    color: #4b5563;
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+
+  .stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3b82f6;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+
+  .flight-search-form {
+    width: 100%;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-field {
+    position: relative;
+  }
+
+  .input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .input-with-icon svg {
+    position: absolute;
+    left: 1rem;
+    z-index: 2;
+    color: #6b7280;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    transition: all 0.2s ease;
+  }
+
+  select, input[type="date"] {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+    font-size: 0.9375rem;
+    color: #111827;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    appearance: none;
+    height: 48px;
+  }
+
+  select:focus, input[type="date"]:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    background-color: #fff;
+  }
+
+  select:hover, input[type="date"]:hover {
+    border-color: #9ca3af;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #fff;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-btn:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
+  }
+
+  .primary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .primary-btn:hover {
+    background-color: #2563eb;
+  }
+
+  /* Date input styling */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  /* Select dropdown arrow */
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236b7280' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 16px 12px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .main {
+      flex-direction: column;
+      padding: 1rem;
+    }
+    
+    .hero-content {
+      padding-right: 0;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-image {
+      width: 100%;
+    }
+    
+    .form-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .stats {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .form-actions {
+      flex-direction: column;
+    }
+    
+    .secondary-btn, .primary-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const departureDateEl = document.getElementById('departureDate');
+    const returnDateEl = document.getElementById('returnDate');
+    
+    // Set initial minimum dates
+    const today = new Date().toISOString().split('T')[0];
+    departureDateEl.min = today;
+    returnDateEl.min = today;
+    
+    // Update return date minimum when departure changes
+    departureDateEl.addEventListener('change', function() {
+      returnDateEl.min = this.value;
+      
+      if (returnDateEl.value && returnDateEl.value < this.value) {
+        returnDateEl.value = '';
+      }
+    });
+    
+    // Handle form submission
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Validate form
+      if (!this.origin.value || !this.destination.value || !this.departureDate.value) {
+        alert('Please fill in all required fields');
+        return;
+      }
+      
+      // Prepare search params
+      const params = new URLSearchParams();
+      params.append('origin', this.origin.value);
+      params.append('destination', this.destination.value);
+      params.append('departureDate', this.departureDate.value);
+      if (this.returnDate.value) params.append('returnDate', this.returnDate.value);
+      params.append('travelClass', this.travelClass.value);
+      params.append('passengers', this.passengers.value);
+      
+      // Redirect to results page
+      window.location.href = `flights.html?${params.toString()}`;
+    });
+  });
+</script>
 
       <!-- Tohir Contribution -->
       <section class="flight-offers">
