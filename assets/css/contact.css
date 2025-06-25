@@ -8,17 +8,16 @@ body {
   min-height: 100vh;
 }
 
-.contact-container {
+/* .contact-container {
   margin-top: 80px;
   width: 100%;
   padding: 20px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-}
+} */
 
 .contact-form {
-  width: 50%;
   background-color: #ffffff;
   padding: 30px;
   border-radius: 10px;
