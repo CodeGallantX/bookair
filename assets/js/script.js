@@ -94,3 +94,48 @@ document.getElementByClass('flight-card').addEventListener('click', () => {
 
 
 
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const departureDateEl = document.getElementById('departureDate');
+    const returnDateEl = document.getElementById('returnDate');
+    
+    // Set initial minimum dates
+    const today = new Date().toISOString().split('T')[0];
+    departureDateEl.min = today;
+    returnDateEl.min = today;
+    
+    // Update return date minimum when departure changes
+    departureDateEl.addEventListener('change', function() {
+      returnDateEl.min = this.value;
+      
+      if (returnDateEl.value && returnDateEl.value < this.value) {
+        returnDateEl.value = '';
+      }
+    });
+    
+    // Handle form submission
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Validate form
+      if (!this.origin.value || !this.destination.value || !this.departureDate.value) {
+        alert('Please fill in all required fields');
+        return;
+      }
+      
+      // Prepare search params
+      const params = new URLSearchParams();
+      params.append('origin', this.origin.value);
+      params.append('destination', this.destination.value);
+      params.append('departureDate', this.departureDate.value);
+      if (this.returnDate.value) params.append('returnDate', this.returnDate.value);
+      params.append('travelClass', this.travelClass.value);
+      params.append('passengers', this.passengers.value);
+      
+      // Redirect to results page
+      window.location.href = `flights.html?${params.toString()}`;
+    });
+  });

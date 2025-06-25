@@ -417,7 +417,7 @@ nav ul li a:hover::after {
 }
 
 /* Hero Section */
-main {
+/* main {
   padding: 6rem 2rem 2rem;
 }
 
@@ -426,7 +426,9 @@ main {
   flex-direction: row-reverse;
   gap: 2rem;
   min-height: 100vh;
-}
+} */
+
+ 
 
 .hero-content {
   flex: 1.5;
