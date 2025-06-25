@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Generate barcode
-    JsBarcode("#barcode", "MX567Y9-BOOKAIR-2023", {
+    JsBarcode("#barcode", "SL3762-SYLINK-2025", {
         format: "CODE128",
         lineColor: "#2c3e50",
         width: 2,
