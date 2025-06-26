@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary Meta Tags -->
-    <title>BookAir - Book Flights & Hotels | Best Travel Deals</title>
+    <title>SkyLink - Book Flights & Hotels | Best Travel Deals</title>
     <meta
       name="description"
-      content="BookAir offers the best deals on flights, hotels, and vacation packages. Compare prices, find discounts, and plan your perfect trip with our easy booking platform."
+      content="SkyLink offers the best deals on flights, hotels, and vacation packages. Compare prices, find discounts, and plan your perfect trip with our easy booking platform."
     />
     <meta
       name="keywords"
-      content="flight booking, cheap flights, hotel reservations, travel deals, vacation packages, BookAir"
+      content="flight booking, cheap flights, hotel reservations, travel deals, vacation packages, SkyLink"
     />
 
     <!-- Open Graph / Facebook Meta Tags -->
@@ -24,7 +24,7 @@
     />
     <meta
       property="og:description"
-      content="Find the best travel deals on flights, hotels, and vacation packages with BookAir. Compare prices and save on your next trip."
+      content="Find the best travel deals on flights, hotels, and vacation packages with SkyLink. Compare prices and save on your next trip."
     />
     <meta
       property="og:image"
@@ -35,11 +35,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="BookAir - Book Flights & Hotels | Best Travel Deals"
+      content="SkyLink - Book Flights & Hotels | Best Travel Deals"
     />
     <meta
       name="twitter:description"
-      content="Find the best travel deals on flights, hotels, and vacation packages with BookAir. Compare prices and save on your next trip."
+      content="Find the best travel deals on flights, hotels, and vacation packages with SkyLink. Compare prices and save on your next trip."
     />
     <meta
       name="twitter:image"
@@ -72,6 +72,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
@@ -284,60 +285,184 @@
         <div class="section-block">
           <h3>Payment Method</h3>
           <div class="radio-group">
-            <label><input type="radio" name="payment-method" checked> <i class="far fa-credit-card"></i> Bank Card</label>
-            <label><input type="radio" name="payment-method"> <i class="fab fa-paypal"></i> PayPal</label>
+            <label><input type="radio" name="payment-method" checked class="payment-method-radio" value="card"> <i class="far fa-credit-card"></i> Bank Card</label>
+            <label><input type="radio" name="payment-method" class="payment-method-radio" value="paypal"> <i class="fab fa-paypal"></i> PayPal</label>
           </div>
           
-          <!-- Credit Card Preview -->
-          <div class="card-preview">
-            <div id="cardCompany" class="card-company">VISA</div>
-            <div class="card-number">•••• •••• •••• 4444</div>
-            <div class="card-details">
+          <!-- PayPal Container (hidden by default) -->
+          <div class="paypal-container" id="paypal-container">
+            <p>You will be redirected to PayPal to complete your payment</p>
+            <div id="paypal-button-container"></div>
+          </div>
+          
+          <!-- Credit Card Container (shown by default) -->
+          <div id="credit-card-container">
+            <!-- Credit Card Preview -->
+            <div class="card-preview visa" id="cardPreview">
+                <div id="cardCompany" class="card-company">VISA</div>
+                <div class="card-number" id="cardNumberPreview">•••• •••• •••• ••••</div>
+                <div class="card-details">
+                  <div>
+                    <div style="font-size: 0.7rem; opacity: 0.8;">CARDHOLDER NAME</div>
+                    <div id="cardholderNamePreview">JOHN SMITH</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.7rem; opacity: 0.8;">EXPIRES</div>
+                    <div id="expiryDatePreview">••/••</div>
+                  </div>
+                </div>
+            </div>
+            
+            <label>Card number</label>
+            <input type="text" id="cardNumberInput" placeholder="1111 2222 3333 4444" inputmode="numeric" pattern="[0-9\s]{13,19}" maxlength="19">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
               <div>
-                <div style="font-size: 0.7rem; opacity: 0.8;">CARDHOLDER NAME</div>
-                <div id="cardholderName">JOHN SMITH</div>
+                <label>Expiry date</label>
+                <input type="text" id="expiryDateInput" placeholder="MM/YY" maxlength="5">
               </div>
               <div>
-                <div style="font-size: 0.7rem; opacity: 0.8;">EXPIRES</div>
-                <div id="expiryDate">11/22</div>
+                <label>CVV code</label>
+                <div style="position: relative;">
+                  <input type="text" id="cvvInput" placeholder="123" maxlength="4" style="padding-right: 2.5rem;">
+                  <i class="fas fa-question-circle" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-light); cursor: help;" title="3-digit code on back of card"></i>
+                </div>
               </div>
             </div>
-          </div>
-          
-          <label>Card number</label>
-          <input type="text" placeholder="1111 2222 3333 4444" inputmode="numeric" pattern="[0-9\s]{13,19}">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-            <div>
-              <label>Expiry date</label>
-              <input type="text" placeholder="MM/YY">
+            <label>Cardholder full name</label>
+            <input type="text" id="cardholderNameInput" placeholder="John Smith">
+            <label style="display: flex; align-items: center; margin-top: 1rem;">
+              <input type="checkbox" id="rememberCard" checked>
+              <span>Remember for future payments</span>
+            </label>
+            
+            <div class="payment-method-icons">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visa/visa-original.svg" alt="Visa">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mastercard/mastercard-original.svg" alt="Mastercard">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="Apple Pay">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google Pay">
             </div>
-            <div>
-              <label>CVV code</label>
-              <div style="position: relative;">
-                <input type="text" placeholder="123" style="padding-right: 2.5rem;">
-                <i class="fas fa-question-circle" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-light); cursor: help;" title="3-digit code on back of card"></i>
-              </div>
-            </div>
-          </div>
-          <label>Cardholder full name</label>
-          <input type="text" placeholder="John Smith">
-          <label style="display: flex; align-items: center; margin-top: 1rem;">
-            <input type="checkbox" checked>
-            <span>Remember for future payments</span>
-          </label>
-          
-          <div class="payment-method-icons">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visa/visa-original.svg" alt="Visa">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mastercard/mastercard-original.svg" alt="Mastercard">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="Apple Pay">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google Pay">
           </div>
         </div>
 
-        <button onclick="navigate('booking-success')" class="pay-btn">
+        <button id="payNowBtn" class="pay-btn">
           <i class="fas fa-lock"></i>
           Pay ₦210,000 Now
         </button>
+        
+        <!-- Receipt Container (hidden until payment) -->
+        <div class="receipt-modal" id="receiptModal">
+          <div class="receipt-content">
+              <button class="close-receipt" id="closeReceiptBtn">&times;</button>
+              
+              <div class="receipt-header">
+                  <div class="receipt-logo">Book<span>Air</span></div>
+                  <h2>Payment Receipt</h2>
+                  <p id="receiptDateTime">31 October 2023 at 14:30</p>
+              </div>
+              
+              <div class="receipt-body">
+                  <div class="receipt-section">
+                      <h3>Transaction Details</h3>
+                      <div class="receipt-item">
+                          <span class="label">Transaction ID:</span>
+                          <span class="value" id="receiptTransactionId">TXN12345678</span>
+                      </div>
+                      <div class="receipt-item">
+                          <span class="label">Payment Method:</span>
+                          <span class="value" id="receiptPaymentMethod">Credit Card</span>
+                      </div>
+                      <div class="receipt-item">
+                          <span class="label">Payment Status:</span>
+                          <span class="value" style="color: #10b981;">Completed</span>
+                      </div>
+                  </div>
+                  
+                  <div class="receipt-section">
+                      <h3>Booking Summary</h3>
+                      <div class="ticket-preview">
+                          <div class="ticket-airline">
+                              <div class="ticket-airline-logo">
+                                  <i class="fas fa-plane" style="color: var(--primary);"></i>
+                              </div>
+                              <div class="ticket-airline-name">SkyLink</div>
+                          </div>
+                          
+                          <div class="ticket-route">
+                              <div class="ticket-location">
+                                  <div class="code">LOS</div>
+                                  <div class="city">Lagos</div>
+                              </div>
+                              
+                              <div class="ticket-duration">
+                                  <div class="time">2h 30m</div>
+                                  <div class="stops">Non-stop</div>
+                              </div>
+                              
+                              <div class="ticket-location" style="text-align: right;">
+                                  <div class="code">LHR</div>
+                                  <div class="city">London</div>
+                              </div>
+                          </div>
+                          
+                          <div class="ticket-details">
+                              <div class="ticket-detail-item">
+                                  <span class="label">Date</span>
+                                  <span>31 Oct 2024</span>
+                              </div>
+                              <div class="ticket-detail-item">
+                                  <span class="label">Departure</span>
+                                  <span>13:50</span>
+                              </div>
+                              <div class="ticket-detail-item">
+                                  <span class="label">Flight</span>
+                                  <span>BA3701</span>
+                              </div>
+                              <div class="ticket-detail-item">
+                                  <span class="label">Class</span>
+                                  <span>Economy</span>
+                              </div>
+                          </div>
+                          
+                          <div class="ticket-barcode">TXN12345678</div>
+                      </div>
+                      
+                      <div class="receipt-item" style="margin-top: 1rem;">
+                          <span class="label">Passengers:</span>
+                          <span class="value">2 Adults</span>
+                      </div>
+                      <div class="receipt-item">
+                          <span class="label">Bags:</span>
+                          <span class="value">1 checked (23kg)</span>
+                      </div>
+                  </div>
+                  
+                  <div class="receipt-total">
+                      <span>Total Paid:</span>
+                      <span id="receiptTotalAmount">₦210,000</span>
+                  </div>
+              </div>
+              
+              <div class="receipt-footer">
+                  <p>Thank you for choosing SkyLink!</p>
+                  <p>Booking reference: BA37075</p>
+              </div>
+              
+              <div class="receipt-actions">
+                  <button class="download-pdf" id="downloadPdfBtn">
+                      <i class="fas fa-file-pdf"></i> PDF
+                  </button>
+                  <button class="download-img" id="downloadImgBtn">
+                      <i class="fas fa-image"></i> Image
+                  </button>
+                  <button class="share-receipt" id="shareReceiptBtn">
+                      <i class="fas fa-share-alt"></i> Share
+                  </button>
+                  <button class="generate-ticket" id="generateTicketBtn" onclick="window.location.href='booking_success.html'">
+                      <i class="fas fa-ticket-alt"></i> Generate Ticket
+                  </button>
+              </div>
+          </div>
+      </div>
         
         <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; color: var(--text-light);">
           <i class="fas fa-shield-alt"></i> Your payment is secured with 256-bit SSL encryption
@@ -386,6 +511,9 @@
   </main>
   
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/payment.js"></script>
   <script>
@@ -393,6 +521,35 @@
       duration: 800,
       once: true,
     });
+
+
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '210000',
+                        currency_code: 'NGN'
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                showToast('Payment completed successfully!');
+                generateReceipt('PayPal', details.id);
+                savePaymentData({
+                    method: 'paypal',
+                    transactionId: details.id,
+                    amount: 210000,
+                    currency: 'NGN'
+                });
+            });
+        },
+        onError: function(err) {
+            showToast('Payment failed: ' + err.message, true);
+        }
+    }).render('#paypal-button-container');
   </script>
 </body>
 </html>
