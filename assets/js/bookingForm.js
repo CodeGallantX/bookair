@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const seatPreferenceInput = document.getElementById('seat-preference');
     const specialRequestsInput = document.getElementById('special-requests');
     const savePaymentCheckbox = document.getElementById('save-payment');
+    
+    // Luggage Form Elements
+    const luggageForm = document.getElementById('luggageForm');
+    const luggageTagSection = document.getElementById('luggageTag');
 
     // Load saved data from localStorage
     loadSavedData();
@@ -63,6 +67,53 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 1500);
             }, 1000);
         }
+    });
+
+    // Luggage Form Submission
+    luggageForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('passengerName').value;
+        const ref = document.getElementById('bookingRef').value;
+        const weight = parseFloat(document.getElementById('weight').value);
+        const dimensions = document.getElementById('dimensions').value;
+        const flightTime = document.getElementById('flightTime').value;
+        const from = document.getElementById('origin').value;
+        const to = document.getElementById('destination').value;
+        const travelMode = document.getElementById('travelMode').value;
+        
+        // Validate luggage weight
+        if (weight > 32) {
+            showToast("Luggage exceeds 32kg limit. Please split or use cargo.", 'error');
+            return;
+        } else if (weight > 23 && travelMode === "withPassenger") {
+            showToast("Overweight! Extra charges may apply.", 'warning');
+        }
+        
+        // Format flight time for display
+        const formattedTime = new Date(flightTime).toLocaleString('en-US', {
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        // Generate and display luggage tag
+        document.getElementById('tagId').textContent = 'TAG-' + Math.floor(Math.random() * 1000000);
+        document.getElementById('tagName').textContent = name;
+        document.getElementById('tagRef').textContent = ref;
+        document.getElementById('tagTime').textContent = formattedTime;
+        document.getElementById('tagFrom').textContent = from;
+        document.getElementById('tagTo').textContent = to;
+        document.getElementById('tagWeight').textContent = weight;
+        document.getElementById('tagDimensions').textContent = dimensions;
+        
+        luggageTagSection.style.display = 'block';
+        luggageTagSection.scrollIntoView({ behavior: 'smooth' });
+        
+        showToast('Luggage registered and tagged successfully!', 'success');
     });
 
     // Function to add a new passenger
@@ -156,6 +207,11 @@ document.addEventListener('DOMContentLoaded', function() {
             </button>
         `;
         passengerSection.appendChild(passengerDiv);
+        
+        // Scroll to the new passenger
+        setTimeout(() => {
+            passengerDiv.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
     }
 
     // Function to update passenger numbers after removal

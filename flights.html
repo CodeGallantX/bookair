@@ -1,925 +1,207 @@
-Complete this:
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyVoyage | Book Flights</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        :root {
-            /* Light Theme */
-            --bg-light: #fafaff;
-            --bg-dark: #1e2749;
-            --accent: #e4d9ff;
-            --primary: #273469;
-            --primary-light: #3a4a8a;
-            --text-color: #30343f;
-            --text-light: #6b7280;
-            --border-color: #e5e7eb;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-            --radius-sm: 0.375rem;
-            --radius-md: 0.5rem;
-            --radius-lg: 0.75rem;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --sidebar-bg: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: var(--bg-dark);
-            color: white;
-            padding: 15px 0;
-            box-shadow: var(--shadow-md);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .desktop-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            padding: 5px 10px;
-            border-radius: var(--radius-sm);
-        }
-
-        nav a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        nav a.active {
-            background-color: var(--primary-light);
-        }
-
-        .header-buttons {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        /* Main Content */
-        .main {
-            padding: 40px 0;
-        }
-
-        /* Search Box */
-        .search-box {
-            background-color: white;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 20px;
-        }
-
-        .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            border: none;
-            background: none;
-            font-weight: 600;
-            color: var(--text-light);
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .tab.active {
-            color: var(--primary);
-        }
-
-        .tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--primary);
-        }
-
-        .search-form {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--text-color);
-        }
-
-        .form-group input, 
-        .form-group select {
-            padding: 12px 15px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus, 
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(39, 52, 105, 0.1);
-        }
-
-        .passenger-selector {
-            position: relative;
-        }
-
-        .passenger-selector > span {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 15px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-        }
-
-        .passenger-dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            padding: 15px;
-            box-shadow: var(--shadow-md);
-            z-index: 10;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .passenger-selector.active .passenger-dropdown {
-            display: block;
-        }
-
-        .passenger-type {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .counter {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .counter-btn {
-            width: 30px;
-            height: 30px;
-            border: 1px solid var(--border-color);
-            background: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .counter-btn:hover {
-            background-color: var(--bg-light);
-        }
-
-        .done-btn {
-            width: 100%;
-            padding: 10px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .done-btn:hover {
-            background-color: var(--primary-light);
-        }
-
-        .search-btn {
-            grid-column: 1 / -1;
-            padding: 15px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: var(--radius-sm);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 10px;
-        }
-
-        .search-btn:hover {
-            background-color: var(--primary-light);
-        }
-
-        /* Search Results */
-        .search-results {
-            display: flex;
-            gap: 30px;
-        }
-
-        .filters {
-            width: 300px;
-            background-color: white;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-            padding: 20px;
-            height: fit-content;
-        }
-
-        .filter-section {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .filter-section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .filter-section h3 {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            color: var(--primary);
-        }
-
-        .sort-tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .sort-tab {
-            padding: 8px 15px;
-            background-color: var(--bg-light);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .sort-tab.active {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .filter-options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .checkbox {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
-
-        .checkmark {
-            display: inline-block;
-            width: 18px;
-            height: 18px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .checkbox input {
-            display: none;
-        }
-
-        .checkbox input:checked + .checkmark {
-            background-color: var(--primary);
-            border-color: var(--primary);
-        }
-
-        .checkbox input:checked + .checkmark::after {
-            content: '';
-            position: absolute;
-            left: 6px;
-            top: 2px;
-            width: 5px;
-            height: 10px;
-            border: solid white;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg);
-        }
-
-        .airline-logo {
-            width: 20px;
-            height: 20px;
-            object-fit: contain;
-            margin-right: 8px;
-            vertical-align: middle;
-        }
-
-        .price-range {
-            padding: 0 10px;
-        }
-
-        .price-range input[type="range"] {
-            width: 100%;
-            margin: 15px 0;
-            -webkit-appearance: none;
-            height: 6px;
-            background: var(--border-color);
-            border-radius: 3px;
-        }
-
-        .price-range input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            background: var(--primary);
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .price-values {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .time-filters {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .time-filter h4 {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-            color: var(--text-color);
-        }
-
-        .time-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .time-option {
-            padding: 6px 12px;
-            background-color: var(--bg-light);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .time-option.active {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* Results Section */
-        .results {
-            flex: 1;
-        }
-
-        .results-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .results-header h2 {
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .results-count {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .flights-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .flight-card {
-            background-color: white;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            padding: 20px;
-            transition: var(--transition);
-        }
-
-        .flight-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .flight-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .airline-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .airline-logo-lg {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-        }
-
-        .airline-name {
-            font-weight: 500;
-        }
-
-        .flight-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .flight-body {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .flight-time {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 80px;
-        }
-
-        .flight-time span:first-child {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .flight-time span:last-child {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .flight-duration {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-grow: 1;
-            padding: 0 20px;
-            position: relative;
-        }
-
-        .duration-line {
-            width: 100%;
-            height: 1px;
-            background-color: var(--border-color);
-            position: relative;
-            margin: 10px 0;
-        }
-
-        .duration-line::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: -3px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: var(--primary);
-        }
-
-        .duration-line::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: -3px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: var(--primary);
-        }
-
-        .flight-stops {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            background-color: var(--bg-light);
-            padding: 3px 10px;
-            border-radius: var(--radius-sm);
-        }
-
-        .flight-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .baggage-info {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .select-btn {
-            padding: 10px 20px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: var(--radius-sm);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .select-btn.selected {
-            background-color: #4CAF50;
-        }
-
-        .select-btn:hover:not(.selected) {
-            background-color: var(--primary-light);
-        }
-
-        .btn-load-more {
-            width: 100%;
-            padding: 15px;
-            margin-top: 30px;
-            background-color: white;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            border-radius: var(--radius-sm);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .btn-load-more:hover {
-            background-color: var(--bg-light);
-        }
-
-        .proceed-btn {
-            width: 100%;
-            padding: 15px;
-            margin-top: 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: var(--radius-sm);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .proceed-btn:hover {
-            background-color: #45a049;
-        }
-
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--primary);
-            color: white;
-            padding: 15px 25px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transform: translateY(100px);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: 1000;
-        }
-
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .toast.error {
-            background-color: #f44336;
-        }
-
-        .toast .close-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-
-        /* Currency Selector */
-        .currency-selector {
-            position: relative;
-        }
-
-        .currency-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-weight: 500;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 8px 12px;
-            border-radius: var(--radius-sm);
-        }
-
-        .currency-btn:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .currency-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: white;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-            padding: 10px 0;
-            min-width: 180px;
-            z-index: 10;
-            display: none;
-        }
-
-        .currency-dropdown.show {
-            display: block;
-        }
-
-        .currency-dropdown ul {
-            list-style: none;
-        }
-
-        .currency-dropdown li {
-            padding: 8px 20px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .currency-dropdown li:hover {
-            background-color: var(--bg-light);
-        }
-
-        /* Mobile Sidebar */
-        .mobile-sidebar {
-            position: fixed;
-            top: 0;
-            right: -300px;
-            width: 300px;
-            height: 100vh;
-            background-color: var(--sidebar-bg);
-            box-shadow: var(--shadow-lg);
-            z-index: 1000;
-            transition: var(--transition);
-            overflow-y: auto;
-        }
-
-        .mobile-sidebar.open {
-            right: 0;
-        }
-
-        .sidebar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .sidebar-header h3 {
-            color: var(--primary);
-        }
-
-        .close-sidebar {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-light);
-        }
-
-        .mobile-nav {
-            list-style: none;
-            padding: 20px;
-        }
-
-        .mobile-nav li {
-            margin-bottom: 15px;
-        }
-
-        .mobile-nav a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-color);
-            text-decoration: none;
-            padding: 10px;
-            border-radius: var(--radius-sm);
-            transition: var(--transition);
-        }
-
-        .mobile-nav a.active {
-            background-color: var(--bg-light);
-            color: var(--primary);
-        }
-
-        .mobile-nav a:hover {
-            background-color: var(--bg-light);
-        }
-
-        .mobile-currency {
-            padding: 15px 10px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .mobile-currency select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            margin-top: 10px;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .search-results {
-                flex-direction: column;
-            }
-
-            .filters {
-                width: 100%;
-                margin-bottom: 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-                background: none;
-                border: none;
-                color: white;
-                font-size: 1.5rem;
-                cursor: pointer;
-            }
-
-            .search-form {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .form-group.passengers,
-            .form-group:last-child {
-                grid-column: 1 / -1;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .search-form {
-                grid-template-columns: 1fr;
-            }
-
-            .flight-body {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .flight-duration {
-                width: 100%;
-                padding: 15px 0;
-            }
-
-            .duration-line {
-                width: 80%;
-            }
-        }
-    </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>SkyLink - Book Flights & Hotels | Best Travel Deals</title>
+    <meta
+      name="description"
+      content="BookAir offers the best deals on flights, hotels, and vacation packages. Compare prices, find discounts, and plan your perfect trip with our easy booking platform."
+    />
+    <meta
+      name="keywords"
+      content="flight booking, cheap flights, hotel reservations, travel deals, vacation packages, BookAir"
+    />
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codegallantx.github.io/bookair" />
+    <meta
+      property="og:title"
+      content="BookAir - Book Flights & Hotels | Best Travel Deals"
+    />
+    <meta
+      property="og:description"
+      content="Find the best travel deals on flights, hotels, and vacation packages with BookAir. Compare prices and save on your next trip."
+    />
+    <meta
+      property="og:image"
+      content="https://codegallantx.github.io/bookair/assets/images/bookair-social-share.jpg"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="BookAir - Book Flights & Hotels | Best Travel Deals"
+    />
+    <meta
+      name="twitter:description"
+      content="Find the best travel deals on flights, hotels, and vacation packages with BookAir. Compare prices and save on your next trip."
+    />
+    <meta
+      name="twitter:image"
+      content="https://codegallantx.github.io/bookair/assets/images/bookair-social-share.jpg"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://codegallantx.github.io/bookair" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+
+    <!-- Preconnect for external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts -->
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/flights.css" />
+
+    <!-- Scripts -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <div class="desktop-header">
-                <div class="logo">
-                    <h1>Sky<span>Voyage</span></h1>
-                </div>
-
-                <nav>
-                    <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./flights.html" class="active">Flights</a></li>
-                        <li><a href="./hotels.html">Hotels</a></li>
-                        <li><a href="./deals.html">Deals</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-
-                <div class="header-buttons">
-                    <div class="currency-selector">
-                        <button class="currency-btn" id="selected-currency">USD <i class="fas fa-chevron-down"></i></button>
-                        <div class="currency-dropdown">
-                            <ul>
-                                <li data-currency="USD">US Dollar ($)</li>
-                                <li data-currency="EUR">Euro (€)</li>
-                                <li data-currency="GBP">British Pound (£)</li>
-                                <li data-currency="NGN">Nigerian Naira (₦)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <button class="mobile-menu-btn" aria-label="Menu">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
+      <div class="desktop-header">
+        <div class="logo">
+          <h1>Sky<span>Link</span></h1>
         </div>
+
+        <nav>
+          <ul>
+            <li>
+              <a href="./index.html">
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://skylink-flights.vercel.app/flights">
+                <span>Flights</span>
+              </a>
+            </li>
+            <li>
+              <a href="./check-in.html">
+                <span>Check In</span>
+              </a>
+            </li>
+            <li>
+              <a href="./booking.html">
+                <span>Booking</span>
+              </a>
+            </li>
+            <li>
+              <a href="./contact.html">
+                <span>Contact</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header-buttons">
+          <button class="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+
+          <button
+            class="special-button"
+            onclick="navigate('flights')"
+            id="getStarted"
+            type="button"
+            aria-label="Get Started"
+          >
+            <div class="svg-wrapper-1">
+              <div class="svg-wrapper">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#FFF"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M3.414 13.778 2 15.192l4.949 2.121 2.122 4.95 1.414-1.414-.707-3.536L13.091 14l3.61 7.704 1.339-1.339-1.19-10.123 2.828-2.829a2 2 0 1 0-2.828-2.828l-2.903 2.903L3.824 6.297 2.559 7.563l7.644 3.67-3.253 3.253-3.536-.708z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <span>Get Started</span>
+          </button>
+
+          <button class="mobile-menu-btn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Sidebar -->
+      <div class="mobile-sidebar">
+        <div class="sidebar-header">
+          <h3>Menu</h3>
+          <button
+            type="button"
+            aria-label="Close Sidebar"
+            class="close-sidebar"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <ul class="mobile-nav">
+          <li>
+            <a href="/">
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="./flights.html">
+              <span>Flights</span>
+            </a>
+          </li>
+          <li>
+            <a href="./payment.html">
+              <span>Payment</span>
+            </a>
+          </li>
+          <li>
+            <a href="./check-in.html">
+              <span>Check In</span>
+            </a>
+          </li>
+          <li>
+            <a href="./contact.html">
+              <span>Contact</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
     </header>
 
     <!-- Mobile Sidebar -->
