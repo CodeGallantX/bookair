@@ -204,53 +204,173 @@
         </ul>
       </div>
     </header>
-    <div class="container">
-      <!-- Contact Information Section -->
-      <section class="contact-info">
-          <h2>Contact Information</h2>
-          <p class="info-text">
+    <section class="booking-summary">
+      <div class="section-header">
+          <h2>Booking Summary</h2>
+          <span class="info-text">
               <span class="info-icon">i</span>
-              Please include the contact details of the person who will receive the booking confirmation and travel information.
-          </p>
-          <div class="form-group">
-              <div class="input-group">
-                  <label for="phone">Phone number</label>
-                  <input type="tel" id="phone" value="+234 70 235 7891" placeholder="+234 81 839 8749">
-              </div>
-              <div class="input-group">
-                  <label for="email">E-mail address</label>
-                  <input type="email" id="email" value="aliko@dangotegroup.com" placeholder="abc@mail.com">
-              </div>
-          </div>
-          <div class="checkbox-group">
-              <label>
-                  <input type="checkbox" id="receive-offers">
-                  I want to receive information letters about cheap air travel and other offers.
-              </label>
-              <label>
-                  <input type="checkbox" id="remember-contacts">
-                  Remember these contact details for the next booking.
-              </label>
-          </div>
-      </section>
-
-      <!-- Passenger Section -->
-      <section class="passenger-section" id="passenger-section">
-          <!-- Passenger 1 will be added here by JavaScript -->
-      </section>
-
-      <!-- Add Passenger and Continue Buttons -->
-      <div class="action-buttons">
-          <button class="add-passenger">
-              <i class="fas fa-user-plus"></i>
-              Add Passenger
-          </button>
-          <button class="continue-btn" id="continue-btn">
-              <i class="fas fa-arrow-right"></i>
-              Continue to Payment
-          </button>
+              Booking Reference: SKY-<span id="booking-reference">${Math.random().toString().substr(2,6)}</span>
+          </span>
       </div>
+      
+      <div class="form-group">
+          <div class="input-group">
+              <label>Flight Route</label>
+              <input type="text" value="Lagos (LOS) to London (LHR)" readonly>
+          </div>
+          <div class="input-group">
+              <label>Travel Dates</label>
+              <input type="text" value="15 Dec 2023 - 22 Dec 2023" readonly>
+          </div>
+          <div class="input-group">
+              <label>Flight Class</label>
+              <input type="text" value="Economy" readonly>
+          </div>
+          <div class="input-group">
+              <label>Total Price</label>
+              <input type="text" value="₦210,000" readonly>
+          </div>
+      </div>
+  </section>
+
+  <!-- Contact Information Section -->
+  <section class="contact-info">
+      <h2>Contact Information</h2>
+      <p class="info-text">
+          <span class="info-icon">i</span>
+          Please include the contact details of the person who will receive the booking confirmation and travel information.
+      </p>
+      <div class="form-group">
+          <div class="input-group">
+              <label for="phone" class="required">Phone number</label>
+              <span class="input-prefix">+234</span>
+              <input type="tel" id="phone" class="phone-input" value="702357891" placeholder="818398749" required>
+          </div>
+          <div class="input-group">
+              <label for="email" class="required">E-mail address</label>
+              <input type="email" id="email" value="aliko@dangotegroup.com" placeholder="abc@mail.com" required>
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="input-group">
+              <label for="address">Street Address</label>
+              <input type="text" id="address" placeholder="123 Main Street">
+          </div>
+          <div class="input-group">
+              <label for="city">City</label>
+              <input type="text" id="city" placeholder="Lagos">
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="input-group">
+              <label for="state">State/Province</label>
+              <input type="text" id="state" placeholder="Lagos">
+          </div>
+          <div class="input-group">
+              <label for="zip">ZIP/Postal Code</label>
+              <input type="text" id="zip" placeholder="100001">
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="input-group">
+              <label for="country">Country</label>
+              <select id="country">
+                  <option value="NG" selected>Nigeria</option>
+                  <option value="US">United States</option>
+                  <option value="UK">United Kingdom</option>
+                  <option value="GH">Ghana</option>
+                  <option value="SA">South Africa</option>
+                  <option value="KE">Kenya</option>
+              </select>
+          </div>
+          <div class="input-group">
+              <label for="emergency-contact">Emergency Contact</label>
+              <input type="tel" id="emergency-contact" placeholder="+234 800 000 0000">
+          </div>
+      </div>
+      <div class="checkbox-group">
+          <label>
+              <input type="checkbox" id="receive-offers">
+              I want to receive information about special offers and promotions
+          </label>
+          <label>
+              <input type="checkbox" id="remember-contacts">
+              Remember these contact details for future bookings
+          </label>
+          <label>
+              <input type="checkbox" id="terms-agreement" required>
+              I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+          </label>
+      </div>
+  </section>
+
+  <!-- Passenger Section -->
+  <section class="passenger-section" id="passenger-section">
+      <!-- Passenger 1 will be added here by JavaScript -->
+  </section>
+
+  <!-- Special Requests Section -->
+  <section class="special-requests">
+      <h2>Special Requests</h2>
+      <p class="info-text">
+          <span class="info-icon">i</span>
+          Please let us know if you have any special requirements for your flight.
+      </p>
+      <div class="form-group">
+          <div class="input-group">
+              <label for="meal-preference">Meal Preference</label>
+              <select id="meal-preference">
+                  <option value="" selected>No preference</option>
+                  <option value="vegetarian">Vegetarian</option>
+                  <option value="vegan">Vegan</option>
+                  <option value="halal">Halal</option>
+                  <option value="kosher">Kosher</option>
+                  <option value="gluten-free">Gluten Free</option>
+              </select>
+          </div>
+          <div class="input-group">
+              <label for="seat-preference">Seat Preference</label>
+              <select id="seat-preference">
+                  <option value="" selected>No preference</option>
+                  <option value="window">Window</option>
+                  <option value="aisle">Aisle</option>
+                  <option value="extra-legroom">Extra Legroom</option>
+              </select>
+          </div>
+      </div>
+      <div class="input-group">
+          <label for="special-requests">Additional Requests</label>
+          <textarea id="special-requests" rows="3" placeholder="Any other special requests or requirements"></textarea>
+      </div>
+  </section>
+
+  <!-- Payment Method Section -->
+  <section class="payment-method">
+      <h2>Payment Method</h2>
+      <p class="info-text">
+          <span class="info-icon">i</span>
+          You will be able to select your payment method on the next page.
+      </p>
+      <div class="checkbox-group">
+          <label>
+              <input type="checkbox" id="save-payment" checked>
+              Save my payment method for future bookings (payment details are encrypted and secure)
+          </label>
+      </div>
+  </section>
+
+  <!-- Add Passenger and Continue Buttons -->
+  <div class="action-buttons">
+      <button class="add-passenger">
+          <i class="fas fa-user-plus"></i>
+          Add Passenger
+      </button>
+      <button class="continue-btn" id="continue-btn">
+          <i class="fas fa-arrow-right"></i>
+          Continue to Payment
+      </button>
   </div>
+</div>
     <script src="./assets/js/bookingForm.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>

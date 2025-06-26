@@ -5,19 +5,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const continueBtn = document.getElementById('continue-btn');
     const phoneInput = document.getElementById('phone');
     const emailInput = document.getElementById('email');
+    const addressInput = document.getElementById('address');
+    const cityInput = document.getElementById('city');
+    const stateInput = document.getElementById('state');
+    const zipInput = document.getElementById('zip');
+    const countryInput = document.getElementById('country');
+    const emergencyContactInput = document.getElementById('emergency-contact');
     const receiveOffersCheckbox = document.getElementById('receive-offers');
     const rememberContactsCheckbox = document.getElementById('remember-contacts');
+    const termsAgreementCheckbox = document.getElementById('terms-agreement');
+    const mealPreferenceInput = document.getElementById('meal-preference');
+    const seatPreferenceInput = document.getElementById('seat-preference');
+    const specialRequestsInput = document.getElementById('special-requests');
+    const savePaymentCheckbox = document.getElementById('save-payment');
 
     // Load saved data from localStorage
     loadSavedData();
 
     // Initialize with first passenger
-    addPassenger(1);
+    addPassenger(1, 'Adult');
 
     // Add Passenger Functionality
     addPassengerBtn.addEventListener('click', function() {
         const passengerCount = document.querySelectorAll('.passenger').length + 1;
-        addPassenger(passengerCount);
+        // In a real app, you might have a modal to select passenger type
+        addPassenger(passengerCount, 'Adult');
         showToast(`Passenger ${passengerCount} added`, 'success');
     });
 
@@ -39,12 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Continue Button Functionality
     continueBtn.addEventListener('click', function() {
         if (validateForm()) {
-            showToast('Saving passenger details...');
+            showToast('Saving booking details...');
             saveDataToLocalStorage();
             
             // Simulate processing delay
             setTimeout(() => {
-                showToast('Details saved successfully!', 'success');
+                showToast('Booking details saved successfully!', 'success');
                 // Navigate to payment page after a delay
                 setTimeout(() => {
                     window.location.href = 'payment.html';
@@ -54,56 +66,88 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Function to add a new passenger
-    function addPassenger(number) {
+    function addPassenger(number, type = 'Adult') {
         const passengerDiv = document.createElement('div');
         passengerDiv.classList.add('passenger');
         passengerDiv.id = `passenger-${number}`;
         passengerDiv.innerHTML = `
+            <span class="passenger-type-badge">${type}</span>
             <h2>Passenger ${number}</h2>
             <p class="info-text">
                 <span class="info-icon">i</span>
-                The main booker must be at least 18 years of age. For travelers under the age of 16, guidance is usually required.
+                Please provide accurate information as it appears on travel documents.
             </p>
             <div class="form-group">
                 <div class="input-group">
-                    <label for="first-name-${number}">First name</label>
+                    <label for="first-name-${number}" class="required">First name</label>
                     <input type="text" id="first-name-${number}" placeholder="John" required>
                 </div>
                 <div class="input-group">
-                    <label for="last-name-${number}">Last name</label>
+                    <label for="last-name-${number}" class="required">Last name</label>
                     <input type="text" id="last-name-${number}" placeholder="Smith" required>
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <label>Gender</label>
+                    <label for="middle-name-${number}">Middle name</label>
+                    <input type="text" id="middle-name-${number}" placeholder="(Optional)">
+                </div>
+                <div class="input-group">
+                    <label class="required">Gender</label>
                     <div class="radio-group">
                         <label><input type="radio" name="gender-${number}" value="male" required> Male</label>
                         <label><input type="radio" name="gender-${number}" value="female"> Female</label>
+                        <label><input type="radio" name="gender-${number}" value="other"> Other</label>
                     </div>
                 </div>
+            </div>
+            <div class="form-group">
                 <div class="input-group">
-                    <label for="birth-date-${number}">Birth date</label>
+                    <label for="birth-date-${number}" class="required">Date of Birth</label>
                     <input type="date" id="birth-date-${number}" required>
                 </div>
                 <div class="input-group">
-                    <label for="citizenship-${number}">Citizenship</label>
-                    <select id="citizenship-${number}" required>
-                        <option value="" disabled selected>Select your country</option>
-                        <option value="USA">USA</option>
+                    <label for="nationality-${number}" class="required">Nationality</label>
+                    <select id="nationality-${number}" required>
+                        <option value="" disabled selected>Select nationality</option>
+                        <option value="NG">Nigeria</option>
+                        <option value="US">United States</option>
                         <option value="UK">United Kingdom</option>
-                        <option value="Nigeria">Nigeria</option>
-                        <option value="Ghana">Ghana</option>
-                        <option value="South Africa">South Africa</option>
-                        <option value="Kenya">Kenya</option>
-                        <option value="Canada">Canada</option>
+                        <option value="GH">Ghana</option>
+                        <option value="SA">South Africa</option>
+                        <option value="KE">Kenya</option>
                     </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <label for="passport-${number}">Passport Number</label>
+                    <input type="text" id="passport-${number}" placeholder="A12345678">
+                </div>
+                <div class="input-group">
+                    <label for="passport-expiry-${number}">Passport Expiry</label>
+                    <input type="date" id="passport-expiry-${number}">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <label for="frequent-flyer-${number}">Frequent Flyer Program</label>
+                    <select id="frequent-flyer-program-${number}">
+                        <option value="" selected>None</option>
+                        <option value="skyLink-elite">SkyLink Elite</option>
+                        <option value="skyLink-plus">SkyLink Plus</option>
+                        <option value="other">Other Program</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="frequent-flyer-number-${number}">Membership Number</label>
+                    <input type="text" id="frequent-flyer-number-${number}" placeholder="FF12345678">
                 </div>
             </div>
             <div class="checkbox-group">
                 <label>
-                    <input type="checkbox" id="frequent-flyer-${number}">
-                    I'm a member of frequent flyer program
+                    <input type="checkbox" id="needs-assistance-${number}">
+                    This passenger requires special assistance
                 </label>
             </div>
             <button type="button" class="remove-passenger">
@@ -129,6 +173,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (oldId) {
                     const newId = oldId.replace(/-\d+$/, `-${passengerNumber}`);
                     input.id = newId;
+                }
+            });
+
+            // Update radio button names
+            const radios = passenger.querySelectorAll('input[type="radio"]');
+            radios.forEach(radio => {
+                const oldName = radio.name;
+                if (oldName) {
+                    const newName = oldName.replace(/-\d+$/, `-${passengerNumber}`);
+                    radio.name = newName;
                 }
             });
         });
@@ -157,6 +211,13 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
 
+        // Validate terms agreement
+        if (!termsAgreementCheckbox.checked) {
+            showToast('You must agree to the Terms & Conditions to continue', 'error');
+            termsAgreementCheckbox.focus();
+            return false;
+        }
+
         // Validate each passenger
         const passengers = document.querySelectorAll('.passenger');
         for (const passenger of passengers) {
@@ -164,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const lastName = passenger.querySelectorAll('input[type="text"]')[1].value.trim();
             const gender = passenger.querySelector('input[type="radio"]:checked');
             const birthDate = passenger.querySelector('input[type="date"]').value;
-            const citizenship = passenger.querySelector('select').value;
+            const nationality = passenger.querySelector('select').value;
 
             if (!firstName) {
                 showToast('Please enter first name for all passengers', 'error');
@@ -186,9 +247,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 return false;
             }
 
-            if (!citizenship) {
-                showToast('Please select citizenship for all passengers', 'error');
+            if (!nationality) {
+                showToast('Please select nationality for all passengers', 'error');
                 return false;
+            }
+
+            // Validate age if this is an adult passenger
+            const passengerType = passenger.querySelector('.passenger-type-badge').textContent;
+            if (passengerType === 'Adult') {
+                const birthDateObj = new Date(birthDate);
+                const today = new Date();
+                let age = today.getFullYear() - birthDateObj.getFullYear();
+                const monthDiff = today.getMonth() - birthDateObj.getMonth();
+                
+                if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDateObj.getDate())) {
+                    age--;
+                }
+                
+                if (age < 18) {
+                    showToast('Adult passengers must be at least 18 years old', 'error');
+                    return false;
+                }
             }
         }
 
@@ -198,24 +277,45 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to save data to localStorage
     function saveDataToLocalStorage() {
         const bookingData = {
+            bookingReference: document.getElementById('booking-reference').textContent,
             contact: {
                 phone: phoneInput.value.trim(),
                 email: emailInput.value.trim(),
+                address: addressInput.value.trim(),
+                city: cityInput.value.trim(),
+                state: stateInput.value.trim(),
+                zip: zipInput.value.trim(),
+                country: countryInput.value,
+                emergencyContact: emergencyContactInput.value.trim(),
                 receiveOffers: receiveOffersCheckbox.checked,
                 rememberContacts: rememberContactsCheckbox.checked
             },
-            passengers: []
+            preferences: {
+                mealPreference: mealPreferenceInput.value,
+                seatPreference: seatPreferenceInput.value,
+                specialRequests: specialRequestsInput.value.trim(),
+                savePayment: savePaymentCheckbox.checked
+            },
+            passengers: [],
+            termsAgreed: termsAgreementCheckbox.checked,
+            timestamp: new Date().toISOString()
         };
 
         // Get data for each passenger
         document.querySelectorAll('.passenger').forEach(passenger => {
             const passengerData = {
+                type: passenger.querySelector('.passenger-type-badge').textContent,
                 firstName: passenger.querySelector('input[type="text"]').value.trim(),
                 lastName: passenger.querySelectorAll('input[type="text"]')[1].value.trim(),
+                middleName: passenger.querySelectorAll('input[type="text"]')[2].value.trim(),
                 gender: passenger.querySelector('input[type="radio"]:checked').value,
                 birthDate: passenger.querySelector('input[type="date"]').value,
-                citizenship: passenger.querySelector('select').value,
-                frequentFlyer: passenger.querySelector('input[type="checkbox"]').checked
+                nationality: passenger.querySelector('select').value,
+                passportNumber: passenger.querySelectorAll('input[type="text"]')[3].value.trim(),
+                passportExpiry: passenger.querySelectorAll('input[type="date"]')[1].value,
+                frequentFlyerProgram: passenger.querySelectorAll('select')[1].value,
+                frequentFlyerNumber: passenger.querySelectorAll('input[type="text"]')[4].value.trim(),
+                needsAssistance: passenger.querySelector('input[type="checkbox"]').checked
             };
             bookingData.passengers.push(passengerData);
         });
@@ -227,7 +327,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (rememberContactsCheckbox.checked) {
             localStorage.setItem('skylink_contact_info', JSON.stringify({
                 phone: phoneInput.value.trim(),
-                email: emailInput.value.trim()
+                email: emailInput.value.trim(),
+                address: addressInput.value.trim(),
+                city: cityInput.value.trim(),
+                state: stateInput.value.trim(),
+                zip: zipInput.value.trim(),
+                country: countryInput.value
             }));
         }
     }
@@ -238,8 +343,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const savedContactInfo = localStorage.getItem('skylink_contact_info');
         if (savedContactInfo) {
             const contactInfo = JSON.parse(savedContactInfo);
-            phoneInput.value = contactInfo.phone;
-            emailInput.value = contactInfo.email;
+            phoneInput.value = contactInfo.phone || '';
+            emailInput.value = contactInfo.email || '';
+            addressInput.value = contactInfo.address || '';
+            cityInput.value = contactInfo.city || '';
+            stateInput.value = contactInfo.state || '';
+            zipInput.value = contactInfo.zip || '';
+            countryInput.value = contactInfo.country || 'NG';
             rememberContactsCheckbox.checked = true;
         }
 
@@ -249,78 +359,72 @@ document.addEventListener('DOMContentLoaded', function() {
             const bookingData = JSON.parse(savedBookingData);
             
             // Set contact info
-            phoneInput.value = bookingData.contact.phone;
-            emailInput.value = bookingData.contact.email;
-            receiveOffersCheckbox.checked = bookingData.contact.receiveOffers;
-            rememberContactsCheckbox.checked = bookingData.contact.rememberContacts;
-
-            // Clear existing passengers except the first one
-            const existingPassengers = document.querySelectorAll('.passenger');
-            for (let i = 1; i < existingPassengers.length; i++) {
-                existingPassengers[i].remove();
-            }
-
-            // Set data for first passenger
-            if (bookingData.passengers.length > 0) {
-                const firstPassenger = bookingData.passengers[0];
-                document.getElementById('first-name-1').value = firstPassenger.firstName;
-                document.getElementById('last-name-1').value = firstPassenger.lastName;
-                document.querySelector(`input[name="gender-1"][value="${firstPassenger.gender}"]`).checked = true;
-                document.getElementById('birth-date-1').value = firstPassenger.birthDate;
-                document.getElementById('citizenship-1').value = firstPassenger.citizenship;
-                document.getElementById('frequent-flyer-1').checked = firstPassenger.frequentFlyer;
-            }
-
-            // Add additional passengers if any
-            for (let i = 1; i < bookingData.passengers.length; i++) {
-                const passengerData = bookingData.passengers[i];
-                const passengerNumber = i + 1;
-                addPassenger(passengerNumber);
+            phoneInput.value = bookingData.contact.phone || '';
+            emailInput.value = bookingData.contact.email || '';
+            addressInput.value = bookingData.contact.address || '';
+            cityInput.value = bookingData.contact.city || '';
+            stateInput.value = bookingData.contact.state || '';
+            zipInput.value = bookingData.contact.zip || '';
+            countryInput.value = bookingData.contact.country || 'NG';
+            emergencyContactInput.value = bookingData.contact.emergencyContact || '';
+            receiveOffersCheckbox.checked = bookingData.contact.receiveOffers || false;
+            rememberContactsCheckbox.checked = bookingData.contact.rememberContacts || false;
+            
+            // Set preferences
+            mealPreferenceInput.value = bookingData.preferences.mealPreference || '';
+            seatPreferenceInput.value = bookingData.preferences.seatPreference || '';
+            specialRequestsInput.value = bookingData.preferences.specialRequests || '';
+            savePaymentCheckbox.checked = bookingData.preferences.savePayment || false;
+            
+            // Set terms agreement
+            termsAgreementCheckbox.checked = bookingData.termsAgreed || false;
+            
+            // Clear existing passengers and add saved ones
+            passengerSection.innerHTML = '';
+            bookingData.passengers.forEach((passenger, index) => {
+                addPassenger(index + 1, passenger.type);
                 
-                // Set values for the new passenger
-                document.getElementById(`first-name-${passengerNumber}`).value = passengerData.firstName;
-                document.getElementById(`last-name-${passengerNumber}`).value = passengerData.lastName;
-                document.querySelector(`input[name="gender-${passengerNumber}"][value="${passengerData.gender}"]`).checked = true;
-                document.getElementById(`birth-date-${passengerNumber}`).value = passengerData.birthDate;
-                document.getElementById(`citizenship-${passengerNumber}`).value = passengerData.citizenship;
-                document.getElementById(`frequent-flyer-${passengerNumber}`).checked = passengerData.frequentFlyer;
-            }
+                // Fill passenger data
+                const passengerDiv = document.getElementById(`passenger-${index + 1}`);
+                passengerDiv.querySelector(`#first-name-${index + 1}`).value = passenger.firstName;
+                passengerDiv.querySelector(`#last-name-${index + 1}`).value = passenger.lastName;
+                passengerDiv.querySelector(`#middle-name-${index + 1}`).value = passenger.middleName;
+                
+                // Set gender radio button
+                const genderRadio = passengerDiv.querySelector(`input[name="gender-${index + 1}"][value="${passenger.gender}"]`);
+                if (genderRadio) genderRadio.checked = true;
+                
+                passengerDiv.querySelector(`#birth-date-${index + 1}`).value = passenger.birthDate;
+                passengerDiv.querySelector(`#nationality-${index + 1}`).value = passenger.nationality;
+                passengerDiv.querySelector(`#passport-${index + 1}`).value = passenger.passportNumber;
+                passengerDiv.querySelector(`#passport-expiry-${index + 1}`).value = passenger.passportExpiry;
+                passengerDiv.querySelector(`#frequent-flyer-program-${index + 1}`).value = passenger.frequentFlyerProgram;
+                passengerDiv.querySelector(`#frequent-flyer-number-${index + 1}`).value = passenger.frequentFlyerNumber;
+                passengerDiv.querySelector(`#needs-assistance-${index + 1}`).checked = passenger.needsAssistance;
+            });
         }
     }
 
-    // Function to show toast messages
+    // Function to show toast notifications
     function showToast(message, type = 'info') {
         const toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.innerHTML = `
-            <div class="toast-content">
-                <i class="fas ${type === 'error' ? 'fa-exclamation-circle' : type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i>
-                <div class="message">${message}</div>
-            </div>
-            <button class="close-btn">&times;</button>
-        `;
-        
+        toast.className = `toast toast-${type}`;
+        toast.textContent = message;
         document.body.appendChild(toast);
         
-        // Show toast
+        // Show the toast
         setTimeout(() => {
             toast.classList.add('show');
         }, 10);
         
-        // Auto-remove after 3 seconds
+        // Hide after 3 seconds
         setTimeout(() => {
             toast.classList.remove('show');
+            
+            // Remove after animation completes
             setTimeout(() => {
                 toast.remove();
             }, 300);
         }, 3000);
-        
-        // Close button
-        toast.querySelector('.close-btn').addEventListener('click', function() {
-            toast.classList.remove('show');
-            setTimeout(() => {
-                toast.remove();
-            }, 300);
-        });
     }
 });
