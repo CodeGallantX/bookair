@@ -79,6 +79,7 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/toast.css" />
     <link rel="stylesheet" href="./assets/css/booking.css" />
 
     <!-- Scripts -->
@@ -204,91 +205,52 @@
       </div>
     </header>
     <div class="container">
-        <!-- Contact Information Section -->
-        <section class="contact-info">
-            <h2>Contact Information</h2>
-            <p class="info-text">
-                <span class="info-icon">i</span>
-                Please include the contact details of the person who will receive the booking confirmation and travel information.
-            </p>
-            <div class="form-group">
-                <div class="input-group">
-                    <label>Phone number</label>
-                    <input type="tel" value="+234 70 235 7891 " placeholder="+234 81 839 8749">
-                </div>
-                <div class="input-group">
-                    <label>E-mail address</label>
-                    <input type="email" value="aliko@dangotegroup.com" placeholder="abc@mail.com">
-                </div>
-            </div>
-            <div class="checkbox-group">
-                <label>
-                    <input type="checkbox">
-                    I want to receive information letters about cheap air travel and other offers.
-                </label>
-                <label>
-                    <input type="checkbox">
-                    Remember these contact details for the next booking.
-                </label>
-            </div>
-        </section>
+      <!-- Contact Information Section -->
+      <section class="contact-info">
+          <h2>Contact Information</h2>
+          <p class="info-text">
+              <span class="info-icon">i</span>
+              Please include the contact details of the person who will receive the booking confirmation and travel information.
+          </p>
+          <div class="form-group">
+              <div class="input-group">
+                  <label for="phone">Phone number</label>
+                  <input type="tel" id="phone" value="+234 70 235 7891" placeholder="+234 81 839 8749">
+              </div>
+              <div class="input-group">
+                  <label for="email">E-mail address</label>
+                  <input type="email" id="email" value="aliko@dangotegroup.com" placeholder="abc@mail.com">
+              </div>
+          </div>
+          <div class="checkbox-group">
+              <label>
+                  <input type="checkbox" id="receive-offers">
+                  I want to receive information letters about cheap air travel and other offers.
+              </label>
+              <label>
+                  <input type="checkbox" id="remember-contacts">
+                  Remember these contact details for the next booking.
+              </label>
+          </div>
+      </section>
 
-        <!-- Passenger Section -->
-        <section class="passenger-section">
-            <div class="passenger" id="passenger-1">
-                <h2>Passenger 1</h2>
-                <p class="info-text">
-                    <span class="info-icon">i</span>
-                    The main booker must be at least 18 years of age. For travelers under the age of 16, guidance is usually required.
-                </p>
-                <div class="form-group">
-                    <div class="input-group">
-                        <label>First name</label>
-                        <input type="text" placeholder="John">
-                    </div>
-                    <div class="input-group">
-                        <label>Last name</label>
-                        <input type="text" placeholder="Smith">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <label>Gender</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="gender-1" value="male"> Male</label>
-                            <label><input type="radio" name="gender-1" value="female"> Female</label>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label>Birth date</label>
-                        <input type="date" aria-label="Birth Date"/>
-                    </div>
-                    <div class="input-group">
-                        <label>Citizenship</label>
-                        <select aria-label="Country of citizenship">
-                            <option value="" disabled selected>Select your country</option>
-                            <option value="USA">USA</option>
-                            <option value="UK">UK</option>
-                            <option value="Ukraine">Ukraine</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="checkbox-group">
-                    <label>
-                        <input type="checkbox">
-                        I'm a member of frequent flyer program
-                    </label>
-                </div>
-                <button class="remove-passenger">Remove Passenger</button>
-            </div>
-        </section>
+      <!-- Passenger Section -->
+      <section class="passenger-section" id="passenger-section">
+          <!-- Passenger 1 will be added here by JavaScript -->
+      </section>
 
-        <!-- Add Passenger and Continue Buttons -->
-        <div class="action-buttons">
-            <button class="add-passenger">+ Add Passenger</button>
-            <button onclick="navigate('payment')" class="continue-btn">Continue</button>
-        </div>
-    </div>
+      <!-- Add Passenger and Continue Buttons -->
+      <div class="action-buttons">
+          <button class="add-passenger">
+              <i class="fas fa-user-plus"></i>
+              Add Passenger
+          </button>
+          <button class="continue-btn" id="continue-btn">
+              <i class="fas fa-arrow-right"></i>
+              Continue to Payment
+          </button>
+      </div>
+  </div>
     <script src="./assets/js/bookingForm.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>

@@ -6,10 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["BookAir"],
+  "keywords": [
+    "BookAir"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "aos": "^2.3.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
   }
 }
