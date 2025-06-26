@@ -1,18 +1,12 @@
-import { fetchFlights, convertCurrency, getAirlineInfo } from './api.js';
-
 // DOM Elements
 const flightsList = document.getElementById('flights-list');
 const loadMoreBtn = document.getElementById('load-more');
 const sortTabs = document.querySelectorAll('.sort-tab');
-const filterCheckboxes = document.querySelectorAll('.filter-options input[type="checkbox"]');
 const priceSlider = document.getElementById('price-slider');
 const minPriceDisplay = document.getElementById('min-price');
 const maxPriceDisplay = document.getElementById('max-price');
 const shownCount = document.getElementById('shown-count');
 const totalCount = document.getElementById('total-count');
-const currencyDropdown = document.querySelector('.currency-dropdown');
-const currencyOptions = document.querySelectorAll('.dropdown-menu li[data-currency]');
-const selectedCurrency = document.getElementById('selected-currency');
 const timeOptions = document.querySelectorAll('.time-option');
 const searchBtn = document.querySelector('.search-btn');
 const toast = document.getElementById('toast');
@@ -24,7 +18,7 @@ let currentFilters = {
   airlines: ['delta', 'united', 'american', 'british'],
   priceRange: 5000,
   departureTime: null,
-  baggage: 'free',
+  baggage: ['free'],
   sort: 'best'
 };
 
@@ -36,6 +30,9 @@ let selectedFlights = [];
 document.addEventListener('DOMContentLoaded', () => {
   loadFlights();
   setupEventListeners();
+  
+  // Initialize price display
+  maxPriceDisplay.textContent = formatCurrency(currentFilters.priceRange, currentCurrency);
 });
 
 // Event Listeners
@@ -75,9 +72,18 @@ function setupEventListeners() {
   // Time filters
   timeOptions.forEach(option => {
     option.addEventListener('click', () => {
-      timeOptions.forEach(o => o.classList.remove('active'));
+      // Remove active class from all options in the same group
+      const parentDiv = option.closest('.time-options');
+      parentDiv.querySelectorAll('.time-option').forEach(o => o.classList.remove('active'));
+      
+      // Add active class to clicked option
       option.classList.add('active');
-      currentFilters.departureTime = option.dataset.time;
+      
+      // Determine if this is origin or destination time filter
+      const timeFilterType = option.closest('.time-filter').querySelector('h4').textContent.includes('Origin') ? 'departureTime' : 'returnTime';
+      
+      // Update filters
+      currentFilters[timeFilterType] = option.dataset.time;
       loadFlights();
     });
   });
@@ -88,31 +94,8 @@ function setupEventListeners() {
     loadFlights();
   });
   
-  // Currency dropdown
-  currencyDropdown.addEventListener('click', (e) => {
-    e.stopPropagation();
-    currencyDropdown.querySelector('.dropdown-menu').classList.toggle('show');
-  });
-  
-  // Currency selection
-  currencyOptions.forEach(option => {
-    option.addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentCurrency = option.dataset.currency;
-      selectedCurrency.textContent = currentCurrency;
-      currencyDropdown.querySelector('.dropdown-menu').classList.remove('show');
-      loadFlights();
-    });
-  });
-  
-  // Close dropdown when clicking outside
-  document.addEventListener('click', () => {
-    currencyDropdown.querySelector('.dropdown-menu').classList.remove('show');
-  });
-  
   // Search button
   searchBtn.addEventListener('click', () => {
-    // In a real app, this would use the search form values to fetch new results
     displayedFlights = 5;
     loadFlights();
   });
@@ -135,8 +118,7 @@ function updateAirlineFilters() {
 }
 
 function updateBaggageFilter() {
-  const checked = document.querySelector('.filter-options input[name="baggage"]:checked');
-  currentFilters.baggage = checked ? checked.value : null;
+  currentFilters.baggage = Array.from(document.querySelectorAll('.filter-options input[name="baggage"]:checked')).map(cb => cb.value);
   loadFlights();
 }
 
@@ -147,11 +129,20 @@ async function loadFlights() {
     displayFlights(flights);
   } catch (error) {
     console.error('Error loading flights:', error);
+    // Display error message to user
+    flightsList.innerHTML = `<div class="error-message">Unable to load flights. Please try again later.</div>`;
   }
 }
 
 function displayFlights(flights) {
   flightsList.innerHTML = '';
+  
+  if (flights.length === 0) {
+    flightsList.innerHTML = `<div class="no-flights">No flights match your filters. Try adjusting your search criteria.</div>`;
+    loadMoreBtn.style.display = 'none';
+    return;
+  }
+  
   const flightsToShow = flights.slice(0, displayedFlights);
   
   flightsToShow.forEach(flight => {
@@ -227,7 +218,6 @@ function createFlightCard(flight) {
       selectBtn.classList.add('selected');
     }
     
-    // Update UI to show selected count
     updateSelectedFlightsCount();
   });
   
@@ -269,7 +259,7 @@ function showProceedButton() {
     proceedBtn.className = 'btn btn-primary proceed-btn';
     proceedBtn.textContent = `Proceed with ${selectedFlights.length} flight${selectedFlights.length > 1 ? 's' : ''}`;
     proceedBtn.addEventListener('click', proceedToBooking);
-    document.querySelector('.search-results').appendChild(proceedBtn);
+    document.querySelector('.results').appendChild(proceedBtn);
   } else {
     proceedBtn.textContent = `Proceed with ${selectedFlights.length} flight${selectedFlights.length > 1 ? 's' : ''}`;
   }
